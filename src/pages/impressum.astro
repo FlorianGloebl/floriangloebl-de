@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, mailto } from '../data/site';
+const c = site.contact;
+---
+
+<Base title="Impressum">
+  <section class="legal">
+    <div class="wrap prose">
+      <p class="kicker">Rechtliches</p>
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>
+        {c.name}<br />
+        {c.street}<br />
+        {c.city}
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: <a href={c.phoneHref}>{c.phone}</a><br />
+        E-Mail: <a href={mailto()}>{c.email}</a>
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <p>
+        {c.name}<br />
+        {c.street}<br />
+        {c.city}
+      </p>
+
+      <h2>Haftung für Links</h2>
+      <p>
+        Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für die
+        Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Bei Bekanntwerden
+        von Rechtsverletzungen entferne ich derartige Links umgehend.
+      </p>
+
+      <h2>Bildnachweise</h2>
+      <p>
+        Fotos, soweit nicht anders angegeben: Florian Glöbl. Abweichende Bildnachweise stehen direkt am jeweiligen
+        Bild.
+      </p>
+    </div>
+  </section>
+</Base>

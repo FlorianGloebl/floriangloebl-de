@@ -1,0 +1,45 @@
+---
+// Gibt ein freigegebenes Foto responsiv aus (WebP + JPG-Fallback, feste Maße).
+// Fehlt das Foto, erscheint nur im lokalen Dev-Server ein interner Hinweis.
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import media from '../data/media.json';
+
+interface Props {
+  id: string;
+  sizes: string;
+  widths?: number[];
+  priority?: boolean;
+  caption?: boolean;
+  class?: string;
+}
+
+const { id, sizes, widths = [480, 720, 960, 1280, 1600], priority = false, caption = false, class: cls } = Astro.props;
+
+const files = import.meta.glob<{ default: ImageMetadata }>('../assets/photos/*.jpg', { eager: true });
+const src = files[`../assets/photos/${id}.jpg`]?.default;
+const meta = (media as Record<string, { alt: string; credit: string; caption: string; focus: string }>)[id];
+const usable = widths.filter((w) => !src || w <= src.width);
+const note = [caption ? meta?.caption : '', meta?.credit].filter(Boolean).join(' ');
+---
+
+{src && meta ? (
+  <figure class:list={['photo', cls]}>
+    <Picture
+      src={src}
+      alt={meta.alt}
+      sizes={sizes}
+      widths={usable.length ? usable : [src.width]}
+      formats={['webp']}
+      fallbackFormat="jpg"
+      quality={78}
+      loading={priority ? 'eager' : 'lazy'}
+      fetchpriority={priority ? 'high' : 'auto'}
+      decoding={priority ? 'sync' : 'async'}
+      style={`object-position: ${meta.focus}`}
+    />
+    {note && <figcaption>{note}</figcaption>}
+  </figure>
+) : import.meta.env.DEV ? (
+  <div class:list={['photo photo--missing', cls]} role="note">Foto fehlt: {id}</div>
+) : null}

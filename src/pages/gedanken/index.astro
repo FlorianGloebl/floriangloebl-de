@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts } from '../../data/posts';
+
+const posts = await getPosts();
+---
+
+<Base title="Gedanken" description="Persönliche Notizen und Neuigkeiten von Florian Glöbl: Führung und Zusammenarbeit, Gründen und Machen, Draußen, Persönliches.">
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">Gedanken</p>
+      <h1>Gedanken</h1>
+      <p class="subline prose">Persönliche Notizen und Neuigkeiten – über Führung und Zusammenarbeit, Gründen und Machen, Draußen und Persönliches.</p>
+      {posts.length > 0 ? (
+        <div class="post-list" style="margin-top: 3rem">
+          {posts.map((post) => <PostCard post={post} row />)}
+        </div>
+      ) : (
+        <p class="marginal" style="margin-top: 3rem">Hier erscheinen bald die ersten Beiträge.</p>
+      )}
+    </div>
+  </section>
+</Base>

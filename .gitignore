@@ -1,0 +1,48 @@
+# Build & Abhängigkeiten
+node_modules/
+dist/
+.astro/
+test-results/
+playwright-report/
+
+# Zugangsdaten und lokale Umgebung
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Datenbank- und Sicherungskopien (falls je welche entstehen)
+*.sql
+*.sql.gz
+*.sqlite
+*.bak
+backup/
+backups/
+
+# Originale Fotobestände: liegen nur lokal im Projektordner (Wurzel) oder
+# im freigegebenen OneDrive-Ordner. Ins Repo kommen nur die Webkopien
+# unter src/assets/photos/, die scripts/import-media.mjs erzeugt.
+/*.jpg
+/*.JPG
+/*.jpeg
+/*.png
+/*.PNG
+/*.webp
+/*.WEBP
+/*.heic
+/*.HEIC
+originals/
+import/
+private/
+
+# Buchdateien (Malik, Löffler) – nur lokale Gestaltungsreferenz
+/*.pdf
+*.epub
+
+# Private Auftragsunterlagen
+/*.docx
+/Florian_Gloebl_Website_Auftrag_fuer_Claude.txt
+
+.DS_Store
+Thumbs.db

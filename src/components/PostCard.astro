@@ -1,0 +1,26 @@
+---
+import Photo from './Photo.astro';
+import { formatDate } from '../data/site';
+import type { Post } from '../data/posts';
+
+interface Props {
+  post: Post;
+  row?: boolean;
+}
+
+const { post, row = false } = Astro.props;
+const { title, description, pubDate, category, cover, draft } = post.data;
+---
+
+<article class:list={['post-card', { 'post-card--row': row }]}>
+  {cover && <a href={`/gedanken/${post.id}/`} tabindex="-1" aria-hidden="true"><Photo id={cover} sizes="(max-width: 640px) 100vw, 480px" widths={[480, 720, 960]} /></a>}
+  <div>
+    <p class="post-meta">
+      {draft && <span class="badge-draft">Entwurf</span>}
+      {pubDate && <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>}
+      {pubDate && ' · '}{category}
+    </p>
+    <h3><a href={`/gedanken/${post.id}/`}>{title}</a></h3>
+    <p>{description}</p>
+  </div>
+</article>

@@ -1,0 +1,116 @@
+{
+  "$comment": "Interne Mediennachweise. Nur Einträge mit status \"approved\" werden von scripts/import-media.mjs als Webkopie übernommen. Die Felder source, sourceFolder und note sind intern und werden nie auf der Website ausgegeben.",
+  "sourceFolder": "Projektordner (Wurzel) – von Flo am 09.10.2026 als freigegebener Fotoordner bestätigt",
+  "media": [
+    {
+      "id": "hero-berge",
+      "source": "IMG_20251122_135616.JPG",
+      "status": "approved",
+      "alt": "Florian Glöbl sitzt lachend auf einer Holzbank auf einer Bergwiese, dahinter ein weißes Haus, Nadelwald und Berggipfel.",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 40%",
+      "note": "Einstieg: Flo im Bergumfeld, gut erkennbar."
+    },
+    {
+      "id": "portrait",
+      "source": "Fotos Flo (2).jpg",
+      "status": "approved",
+      "alt": "Portrait von Florian Glöbl in dunklem Pullover vor einem Bücherregal.",
+      "credit": "",
+      "caption": "",
+      "focus": "45% 30%",
+      "note": "Über mich. Von Flo freigegeben (Studio-Portrait)."
+    },
+    {
+      "id": "benno-eisbaden",
+      "source": "IMG_6090.JPG",
+      "status": "approved",
+      "alt": "Benno Löffler (links) und ich (rechts, mit Mütze) stehen lachend Arm in Arm in weißen Bademänteln auf einem roten Teppich in einem Hotelfoyer.",
+      "credit": "",
+      "caption": "Benno und ich vor dem Eisbaden beim V&S-Lagerfeuer, Januar 2025. Gute Ideen haben nicht immer Wohlfühltemperatur.",
+      "focus": "50% 55%",
+      "note": "Von Flo als Eisbade-Foto bestätigt. Rechts unten Schriftzug 'MANLY' im Bild. Bildcredit noch offen. Einverständnis von Benno zur Veröffentlichung einholen."
+    },
+    {
+      "id": "draussen-gipfelkreuz",
+      "source": "IMG_20261006_172536.JPG",
+      "status": "approved",
+      "alt": "Florian Glöbl steht neben einem hölzernen Gipfelkreuz auf einem Felsgipfel, darunter ein See und weites Hügelland.",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 45%",
+      "note": "Freizeit: Bergsteigen. Gipfelname nicht bekannt, daher nicht nennen."
+    },
+    {
+      "id": "draussen-grat",
+      "source": "IMG_20251003_164742.JPG",
+      "status": "approved",
+      "alt": "Ein Wanderer mit orangem Rucksack steht auf einem Felsen über einem tiefen grünen Bergtal.",
+      "credit": "",
+      "caption": "",
+      "focus": "35% 40%",
+      "note": "Freizeit: Bergsteigen/Klettersteig. Von hinten aufgenommen."
+    },
+    {
+      "id": "draussen-skitour",
+      "source": "IMG_20260308_204233.JPG",
+      "status": "approved",
+      "alt": "Florian Glöbl auf Tourenski mit Rucksack, Stöcken und Sonnenbrille auf einer Schneefläche, im Hintergrund bewaldete Berge.",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 40%",
+      "note": "Freizeit: Skifahren."
+    },
+    {
+      "id": "draussen-rennrad",
+      "source": "IMG_20260716_130626.JPG",
+      "status": "approved",
+      "alt": "Selfie von Florian Glöbl mit Radhelm und Sonnenbrille auf einer Landstraße, hinter ihm ein Rennradfahrer.",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 35%",
+      "note": "Freizeit: Rennrad. Zweite Person im Hintergrund erkennbar."
+    },
+    {
+      "id": "klinik-spende",
+      "source": "DSC05252_Spende Florian Glöbl an Klinik Mallersdorf_QF_B.jpg",
+      "status": "approved",
+      "alt": "Vier Personen vor einem Gebäudeeingang, zwei von ihnen halten ein Schild mit der Aufschrift „Spende € 1000,00 an die Klinik Mallersdorf von Florian Glöbl, G&P“.",
+      "credit": "Foto: Klinik Mallersdorf / Elisabeth Landinger",
+      "caption": "",
+      "focus": "50% 45%",
+      "note": "Pressefoto für den Newsentwurf. Credit laut Konzept/regio-aktuell24. Nutzungsrecht vor Veröffentlichung schriftlich bestätigen lassen."
+    },
+    {
+      "id": "fjord",
+      "source": "IMG_20250715_180421.JPG",
+      "status": "pending",
+      "alt": "",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 50%",
+      "note": "Nicht übernommen: Ort, Person und Bearbeitung unklar. Bei Bestätigung durch Flo möglich für den Skandinavien-Abschnitt."
+    },
+    {
+      "id": "fussball-team",
+      "source": "IMG_20250421_190834.WEBP",
+      "status": "pending",
+      "alt": "",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 50%",
+      "note": "Mannschaftsfoto mit vielen Dritten. Erst nach Einverständnis des Vereins verwenden."
+    },
+    {
+      "id": "ki-bild",
+      "source": "ChatGPT Image 19. Sept. 2026, 13_15_03.png",
+      "status": "rejected",
+      "alt": "",
+      "credit": "",
+      "caption": "",
+      "focus": "",
+      "note": "KI-generiert – passt nicht zur Bildsprache echter Situationen."
+    }
+  ]
+}

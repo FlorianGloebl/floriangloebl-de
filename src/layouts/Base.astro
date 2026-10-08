@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+import { site, nav } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description = site.description, image, noindex = false } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : `${site.name} – Coaching, Mentoring, Gründen und Software`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const robots = site.indexing && !noindex ? 'index, follow' : 'noindex, nofollow';
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#f6f3ed" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={new URL(image, site.url).href} />}
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">Florian Glöbl</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenue">
+          <span class="bars" aria-hidden="true"></span> Menü
+        </button>
+        <nav class="nav" id="hauptmenue" aria-label="Hauptmenü">
+          <ul>
+            {nav.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={{ 'nav-coaching': item.label === 'Coaching' }}
+                  aria-current={path.startsWith(item.href) && !item.href.includes('#') ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inhalt">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>© {new Date().getFullYear()} Florian Glöbl · Laberweinting</p>
+        <ul>
+          <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/datenschutz/">Datenschutz</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.querySelector<HTMLElement>('.site-header');
+      const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+      const menu = document.getElementById('hauptmenue');
+
+      const setOpen = (open: boolean) => {
+        toggle?.setAttribute('aria-expanded', String(open));
+        menu?.classList.toggle('is-open', open);
+      };
+      toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      menu?.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('a')) setOpen(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+
+      const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    </script>
+  </body>
+</html>
