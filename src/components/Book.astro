@@ -1,0 +1,19 @@
+---
+// Gezeichnetes Buchobjekt (reines HTML/CSS, kein Bild): Einband, Buchrücken,
+// Seitenschnitt und Schatten. Die Schrift skaliert mit der Buchbreite.
+import { book } from '../data/book';
+
+interface Props {
+  class?: string;
+}
+const { class: cls } = Astro.props;
+const [first, second] = book.title.split('-');
+---
+
+<div class:list={['book', cls]} aria-hidden="true">
+  <div class="book__cover">
+    <p class="book__authors">Benno Löffler<br />Florian Glöbl</p>
+    <p class="book__title">{first}-<em>{second}</em></p>
+    <p class="book__sub">{book.subtitle}</p>
+  </div>
+</div>

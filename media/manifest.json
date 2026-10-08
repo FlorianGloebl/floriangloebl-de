@@ -29,8 +29,9 @@
       "alt": "Benno Löffler (links) und ich (rechts, mit Mütze) stehen lachend Arm in Arm in weißen Bademänteln auf einem roten Teppich in einem Hotelfoyer.",
       "credit": "",
       "caption": "Benno und ich vor dem Eisbaden beim V&S-Lagerfeuer, Januar 2025. Gute Ideen haben nicht immer Wohlfühltemperatur.",
-      "focus": "50% 55%",
-      "note": "Von Flo als Eisbade-Foto bestätigt. Rechts unten Schriftzug 'MANLY' im Bild. Bildcredit noch offen. Einverständnis von Benno zur Veröffentlichung einholen."
+      "focus": "50% 50%",
+      "crop": [0, 0, 768, 948],
+      "note": "Von Flo als Eisbade-Foto bestätigt. Benno ist mit der Veröffentlichung einverstanden (Flo, 09.10.2026). Unten abgeschnitten, damit der Schriftzug 'MANLY' entfällt."
     },
     {
       "id": "draussen-gipfelkreuz",
@@ -80,7 +81,7 @@
       "credit": "Foto: Klinik Mallersdorf / Elisabeth Landinger",
       "caption": "",
       "focus": "50% 45%",
-      "note": "Pressefoto für den Newsentwurf. Credit laut Konzept/regio-aktuell24. Nutzungsrecht vor Veröffentlichung schriftlich bestätigen lassen."
+      "note": "Pressefoto für den ersten Blogbeitrag. Credit laut Konzept/regio-aktuell24. Nutzungsrecht liegt laut Flo vor (09.10.2026)."
     },
     {
       "id": "fjord",

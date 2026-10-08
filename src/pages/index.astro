@@ -2,7 +2,9 @@
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import PostCard from '../components/PostCard.astro';
-import { site, mailto } from '../data/site';
+import Book from '../components/Book.astro';
+import { site, mailto, formatDate } from '../data/site';
+import { book } from '../data/book';
 import { getPosts } from '../data/posts';
 
 const latest = (await getPosts()).slice(0, 2);
@@ -26,7 +28,13 @@ const c = site.contact;
           <a class="btn btn--ghost" href="#ueber-mich">Mehr über mich</a>
         </div>
       </div>
-      <Photo id="hero-berge" sizes="(max-width: 760px) 100vw, 46vw" priority />
+      <div class="hero__media">
+        <Photo id="hero-berge" sizes="(max-width: 760px) 100vw, 46vw" priority />
+        <a class="hero-book" href="#buch">
+          <Book />
+          <span class="hero-book__label">Neues Buch · Dezember 2026</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -188,7 +196,7 @@ const c = site.contact;
 
   <div class="statement">
     <div class="wrap">
-      <p>Ich möchte verstehen, bevor ich einen Rat gebe.</p>
+      <p>Ein echter Dialog heißt: zuhören – und die eigene Meinung sagen.</p>
     </div>
   </div>
 
@@ -208,12 +216,14 @@ const c = site.contact;
         </div>
         <div class="prose">
           <h3>Was mir wichtig ist</h3>
+          <p>
+            Mir ist wichtig, dass ich mich mit jemandem auf Augenhöhe unterhalten kann und dass das Gespräch nicht
+            oberflächlich bleibt.
+          </p>
           <ul class="arrows">
-            <li>Verstehen, bevor ich einen Rat gebe.</li>
-            <li>Offen sagen, was ich denke, und dabei respektvoll bleiben.</li>
-            <li>Zusagen einhalten.</li>
-            <li>Menschen etwas zutrauen und auch meine eigene Sicht hinterfragen.</li>
-            <li>Bei aller Arbeit Zeit für Bewegung und die Menschen um mich behalten.</li>
+            <li>Ich bin Fan eines echten Dialogs. Das heißt für mich: zuhören und meine Meinung sagen.</li>
+            <li>Ich bin ehrlich, sehr direkt und offen.</li>
+            <li>Ich schwimme auch mal gegen den Strom und mache mein Ding, auch wenn das nicht immer allen passt.</li>
           </ul>
         </div>
       </div>
@@ -239,6 +249,31 @@ const c = site.contact;
             Diskussionen und all den Ideen ist eben auch Platz für solche Geschichten. Und für ein bisschen Humor
             sowieso.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gemeinsames Buch mit Benno -->
+  <section class="book-feature" id="buch" aria-labelledby="buch-titel">
+    <div class="wrap">
+      <div class="book-feature__visual">
+        <a href={book.url} rel="noopener" aria-label={`Website zum Buch ${book.title}`}><Book /></a>
+      </div>
+      <div class="prose">
+        <p class="kicker">Unser neues Buch</p>
+        <h2 id="buch-titel">Höchstleistungs-<em>Killer</em></h2>
+        <p class="subline">{book.subtitle}</p>
+        <p>
+          Benno und ich schreiben gerade gemeinsam ein Buch. Es geht darum, wie Unternehmen ihre Leistungsfähigkeit
+          verlieren, ohne es zu wollen – und wie sie sie zurückholen.
+        </p>
+        <ul class="arrows">
+          {book.parts.map((part) => <li>{part}</li>)}
+        </ul>
+        <p class="book-meta">{book.authors} · Erscheint am {formatDate(book.release)}</p>
+        <div class="actions">
+          <a class="btn btn--primary" href={book.url} rel="noopener">Zum Buch und vorbestellen</a>
         </div>
       </div>
     </div>

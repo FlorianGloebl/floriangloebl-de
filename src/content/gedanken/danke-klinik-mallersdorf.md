@@ -2,8 +2,9 @@
 title: Danke an die Klinik Mallersdorf
 description: Zu meinem Geburtstag haben meine Gäste statt Geschenken gespendet. Am 15. April 2026 habe ich der Klinik Mallersdorf 1.000 Euro übergeben.
 category: Persönliches
-draft: true
-# pubDate erst beim Veröffentlichen setzen (echtes Datum, kein rückdatiertes).
+draft: false
+# Tatsächliches Veröffentlichungsdatum; das Ereignisdatum steht im Text.
+pubDate: 2026-10-09
 cover: klinik-spende
 sources:
   - label: Klinik Mallersdorf – Zeichen der Dankbarkeit für kompetente Hilfe

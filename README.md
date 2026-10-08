@@ -60,6 +60,8 @@ tests/abnahme.spec.ts    Abnahmetests
    ```
 
 3. Text darunter in Markdown schreiben.
+
+Die Angaben zum gemeinsamen Buch mit Benno (Titel, Erscheinungsdatum, Link) stehen in `src/data/book.ts`.
 4. **Vorschau:** `npm run dev` und `http://localhost:4321/gedanken/mein-titel/` öffnen.
 5. **Veröffentlichen:** `draft: false` und `pubDate: 2026-10-12` setzen (das echte Datum), committen, deployen.
 
@@ -98,7 +100,7 @@ Alles, was die Website ausmacht (Code, Texte, Webkopien der Fotos, Mediennachwei
 
 ## Abnahme (09.10.2026)
 
-`npm run build && npm test` – alle 10 Tests bestanden (Microsoft Edge, lokal):
+`npm run build && npm test` – alle 12 Tests bestanden (Microsoft Edge, lokal):
 
 | Kriterium | Ergebnis |
 |---|---|
@@ -106,23 +108,25 @@ Alles, was die Website ausmacht (Code, Texte, Webkopien der Fotos, Mediennachwei
 | Coaching im Menü und als erstes Angebot, Reihenfolge der Abschnitte | bestanden |
 | Telefon `tel:+491721718875`, E-Mail-Link, „Coaching anfragen“ mit Betreff „Anfrage Coaching“ | bestanden |
 | Mobile Navigation: öffnen, Abschnitt anspringen, schließt danach; Escape schließt | bestanden |
-| Entwürfe: 404 im Produktions-Build, nicht in Sitemap, Gedanken-Bereich ausgeblendet | bestanden |
+| Entwürfe: 404 im Produktions-Build, nicht in Sitemap, Titel nicht auf der Startseite | bestanden |
+| Erster Beitrag veröffentlicht: Startseite → Artikel, Bildcredit, Quellenlinks, keine Entwurfsmarke | bestanden |
+| Buch: Hero-Buch führt zu #buch (360 und 1440 px), Link zur Buch-Website | bestanden |
 | Bilder: Alttexte, feste Maße, WebP, nur erstes Bild priorisiert, max. 8 Startbilder, Bildunterschrift | bestanden |
 | Canonical `https://floriangloebl.de/`, noindex vor dem Start, 404-Seite | bestanden |
 | Tastatur: Skip-Link, sichtbarer Fokus | bestanden |
 | Build-Prüfung: keine Entwürfe, Original-Dateinamen, internen Notizen, Quellenziffern | bestanden |
 
-Zusätzlich per Screenshot geprüft: Startseite bei 1440 und 360 px.
+Zusätzlich per Screenshot geprüft: Startseite, Hero mit Buch, Buchabschnitt und Benno-Foto bei 1440 und 360 px.
 
-Noch nicht geprüft, weil noch nicht möglich: Live-Betrieb unter der Domain, HTTPS, www-Weiterleitung, Veröffentlichen eines echten Beitrags (alle drei Beiträge sind Entwürfe).
+Noch nicht geprüft, weil noch nicht möglich: Live-Betrieb unter der Domain, HTTPS, www-Weiterleitung.
 
 ## Offen – vor dem Start klären
 
-- [ ] **Impressum:** Ist Flo als Privatperson/Freiberufler Anbieter? Falls über Glöbl & Partner oder mit Gewerbe: Rechtsform, Registereintrag, USt-ID ergänzen. Impressum und Datenschutz rechtlich prüfen lassen.
-- [ ] **Benno:** Einverständnis zur Veröffentlichung des Eisbade-Fotos; Bildcredit (im Bild steht unten rechts „MANLY“). Das Original hat nur 768 × 1024 px – falls es eine größere Fassung gibt, bitte austauschen.
-- [ ] **Klinikfoto:** Nutzungsrecht bei Klinik Mallersdorf / Elisabeth Landinger schriftlich bestätigen, bevor der Artikel veröffentlicht wird.
-- [ ] **Texte gegenlesen:** Werte („Was mir wichtig ist“), Coaching-Texte, Absatz zu Löfflers Buch, Satz in der grünen Statement-Fläche.
-- [ ] **Entwürfe ergänzen:** „Was mir Wegbereiter mitgegeben haben“ und „Warum ich gern draußen bin“ brauchen Flos eigene Erlebnisse.
-- [ ] **Optional:** Fjord-Foto (Skandinavien) und Fußball-Mannschaftsfoto – stehen im Manifest auf `pending`.
-- [ ] **Vereinsrollen** erst nach Bestätigung nennen.
-- [ ] Vor dem Start keine Demo-Inhalte – es gibt keine; die drei Beiträge sind echte Entwürfe.
+Geklärt am 09.10.2026: Anbieter ist Flo als Privatperson, E-Mail f.gloebl@gmx.de · Benno ist mit dem Eisbade-Foto einverstanden (Schriftzug „MANLY“ per `crop` entfernt) · Nutzungsrecht für das Klinikfoto liegt vor, der Beitrag ist veröffentlicht · Werte in Flos eigenen Worten.
+
+- [ ] Impressum und Datenschutz kurz rechtlich gegenlesen lassen.
+- [ ] Texte gegenlesen: Coaching-Texte, Absatz zu Löfflers Buch, Abschnitt „Unser neues Buch“.
+- [ ] Buchdaten aktuell halten (`src/data/book.ts`): Erscheinungsdatum, Link. Nach Erscheinen „vorbestellen“ in „bestellen“ ändern.
+- [ ] Entwürfe ergänzen: „Was mir Wegbereiter mitgegeben haben“ und „Warum ich gern draußen bin“ brauchen Flos eigene Erlebnisse.
+- [ ] Optional: Fjord-Foto (Skandinavien) und Fußball-Mannschaftsfoto – stehen im Manifest auf `pending`.
+- [ ] Vereinsrollen erst nach Bestätigung nennen.

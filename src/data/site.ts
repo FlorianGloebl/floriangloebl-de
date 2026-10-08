@@ -9,7 +9,7 @@ export const site = {
     city: '84082 Laberweinting',
     phone: '0172/1718875',
     phoneHref: 'tel:+491721718875',
-    email: 'f.gloebl@werkskante.de',
+    email: 'f.gloebl@gmx.de',
   },
   // Indexierung erst zum Start aktivieren: PUBLIC_INDEXING=true beim Build setzen.
   indexing: import.meta.env.PUBLIC_INDEXING === 'true',

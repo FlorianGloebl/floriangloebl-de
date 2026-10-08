@@ -5,7 +5,8 @@
 //
 // - liest media/manifest.json und validiert jeden Eintrag
 // - kopiert NUR Einträge mit status "approved" nach src/assets/photos/<id>.jpg
-//   (gedreht nach EXIF, max. 2400 px, ohne Metadaten – also auch ohne GPS)
+//   (gedreht nach EXIF, optional zugeschnitten, max. 2400 px, ohne Metadaten –
+//   also auch ohne GPS)
 // - schreibt src/data/media.json mit ausschließlich öffentlichen Feldern
 // - entfernt Webkopien, deren Eintrag nicht (mehr) freigegeben ist
 // Originale werden nur gelesen, nie verändert.
@@ -46,6 +47,10 @@ for (const [i, m] of manifest.media.entries()) {
     if (!m.alt?.trim()) errors.push(`${where}: freigegebene Bilder brauchen einen Alttext`);
     if (!FOCUS.test(m.focus ?? '')) errors.push(`${where}: focus im Format "50% 40%" angeben`);
   }
+  if (m.crop !== undefined) {
+    const ok = Array.isArray(m.crop) && m.crop.length === 4 && m.crop.every((n) => Number.isInteger(n) && n >= 0);
+    if (!ok || m.crop[2] === 0 || m.crop[3] === 0) errors.push(`${where}: crop als [links, oben, breite, höhe] in Pixeln angeben`);
+  }
 }
 if (errors.length) {
   console.error('Manifest ungültig:\n- ' + errors.join('\n- '));
@@ -63,8 +68,18 @@ for (const m of approved) {
     continue;
   }
   const out = path.join(outDir, `${m.id}.jpg`);
-  const info = await sharp(src)
-    .rotate()
+  // Erst nach EXIF drehen, dann zuschneiden – crop bezieht sich auf das aufrecht stehende Bild.
+  let image = sharp(await sharp(src).rotate().toBuffer());
+  if (m.crop) {
+    const { width = 0, height = 0 } = await image.metadata();
+    const [left, top, w, h] = m.crop;
+    if (left + w > width || top + h > height) {
+      console.error(`✗ ${m.id}: crop liegt außerhalb des Bildes (${width}×${height})`);
+      process.exit(1);
+    }
+    image = image.extract({ left, top, width: w, height: h });
+  }
+  const info = await image
     .resize({ width: 2400, height: 2400, fit: 'inside', withoutEnlargement: true })
     .jpeg({ quality: 82, mozjpeg: true })
     .toFile(out);

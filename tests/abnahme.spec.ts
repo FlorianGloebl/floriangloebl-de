@@ -35,9 +35,9 @@ test('Coaching ist im Menü und erstes Angebot', async ({ page }) => {
 test('Kontakt-Links und Coaching-Button', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('a[href="tel:+491721718875"]').first()).toBeVisible();
-  await expect(page.locator('a[href="mailto:f.gloebl@werkskante.de"]').first()).toBeAttached();
+  await expect(page.locator('a[href="mailto:f.gloebl@gmx.de"]').first()).toBeAttached();
   const btn = page.getByRole('link', { name: 'Coaching anfragen' }).first();
-  await expect(btn).toHaveAttribute('href', 'mailto:f.gloebl@werkskante.de?subject=Anfrage%20Coaching');
+  await expect(btn).toHaveAttribute('href', 'mailto:f.gloebl@gmx.de?subject=Anfrage%20Coaching');
 });
 
 test('mobile Navigation öffnet, schließt und führt zu Abschnitten', async ({ page }) => {
@@ -67,7 +67,12 @@ test('Entwürfe sind für Besucher unsichtbar', async ({ page, request }) => {
     expect(res.status(), slug).toBe(404);
   }
   await page.goto('/');
-  await expect(page.locator('#gedanken')).toHaveCount(0); // leerer Journalbereich ausgeblendet
+  const home = await page.locator('main').innerText();
+  for (const f of readdirSync('src/content/gedanken')) {
+    const src = readFileSync(`src/content/gedanken/${f}`, 'utf8');
+    const title = src.match(/^title:\s*(.+)$/m)?.[1].trim();
+    if (drafts.includes(f.replace(/\.md$/, '')) && title) expect(home).not.toContain(title);
+  }
   const sitemap = await (await request.get('/sitemap-0.xml')).text();
   for (const slug of drafts) expect(sitemap).not.toContain(slug);
 });
@@ -104,4 +109,30 @@ test('Tastatur: Skip-Link und sichtbarer Fokus', async ({ page }) => {
   const skip = page.getByRole('link', { name: 'Zum Inhalt springen' });
   await expect(skip).toBeFocused();
   await expect(skip).toBeInViewport();
+});
+
+test('erster Beitrag ist veröffentlicht, mit Bildcredit und Quellen', async ({ page }) => {
+  await page.goto('/');
+  const teaser = page.locator('#gedanken').getByRole('link', { name: 'Danke an die Klinik Mallersdorf' });
+  await expect(teaser).toBeVisible();
+  await teaser.click();
+  await expect(page).toHaveURL(/\/gedanken\/danke-klinik-mallersdorf\/$/);
+  await expect(page.getByText('Foto: Klinik Mallersdorf / Elisabeth Landinger')).toBeVisible();
+  await expect(page.getByRole('link', { name: /regio-aktuell24/ })).toHaveAttribute('href', /regio-aktuell24\.de/);
+  await expect(page.locator('.badge-draft')).toHaveCount(0);
+  await page.goto('/gedanken/');
+  await expect(page.locator('.post-card')).toHaveCount(1);
+});
+
+test('Buch: Hero verweist auf Buchabschnitt, Abschnitt verlinkt Buch-Website', async ({ page }) => {
+  for (const width of [360, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    const heroBook = page.locator('.hero-book');
+    await expect(heroBook).toBeVisible();
+    await page.screenshot({ path: `test-results/screens/hero-${width}.png` });
+    await heroBook.click();
+    await expect(page).toHaveURL(/#buch$/);
+    await expect(page.locator('#buch').getByRole('link', { name: 'Zum Buch und vorbestellen' })).toHaveAttribute('href', 'https://hoechstleistungskiller.v-und-s.de/');
+  }
 });
