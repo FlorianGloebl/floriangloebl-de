@@ -927,11 +927,11 @@ p {
 }
 @media (max-width: 760px) {
   .hero-book {
-    right: 0.75rem;
-    bottom: -2.25rem;
+    right: -0.25rem;
+    bottom: -3rem;
   }
   .hero-book .book {
-    --book-w: 6.75rem;
+    --book-w: 6rem;
   }
 }
 
