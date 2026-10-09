@@ -1225,3 +1225,352 @@ p {
   color: var(--ink-soft);
   font-size: 0.98rem;
 }
+
+/* =====================================================================
+   Feinschliff: modernere Bildsprache, weichere Formen, dezente Bewegung
+   ===================================================================== */
+
+:root {
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --shadow-soft: 0 1.75rem 3.5rem -1.75rem rgb(11 44 74 / 0.35), 0 0.4rem 1rem -0.5rem rgb(11 44 74 / 0.15);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Buttons: Pill-Form */
+.btn {
+  border-radius: 999px;
+  padding-inline: 1.5em;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s var(--ease), box-shadow 0.2s;
+}
+.btn--primary:hover {
+  box-shadow: 0 0.6rem 1.2rem -0.6rem rgb(11 44 74 / 0.6);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Fotos allgemein: runde Ecken, weicher Schatten, sanfter Zoom */
+.photo picture {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-soft);
+  background: var(--paper-deep);
+}
+.photo:has(figcaption) picture {
+  height: auto;
+}
+.photo img {
+  transition: transform 0.8s var(--ease);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .strip .photo:hover img,
+  .north__photos .photo:hover img,
+  .post-card:hover .photo img {
+    transform: scale(1.045);
+  }
+}
+
+/* Einstieg: Bogenform wie ein Berggipfel, mit feiner versetzter Kontur */
+.hero__media {
+  isolation: isolate;
+}
+.hero__media::before {
+  content: '';
+  position: absolute;
+  inset: -1.1rem 1.1rem 1.1rem -1.1rem;
+  z-index: -1;
+  border: 1px solid var(--accent);
+  border-radius: 16rem 16rem var(--r-lg) var(--r-lg);
+  opacity: 0.3;
+}
+.hero .photo picture {
+  border-radius: 16rem 16rem var(--r-lg) var(--r-lg);
+}
+@media (max-width: 760px) {
+  .hero__media::before {
+    inset: -0.7rem 0.7rem 0.7rem -0.7rem;
+  }
+  .hero__media::before,
+  .hero .photo picture {
+    border-radius: 11rem 11rem var(--r-lg) var(--r-lg);
+  }
+}
+
+/* Portrait „Über mich“: versetzte Farbfläche */
+#ueber-mich .photo picture {
+  border-radius: var(--r-lg);
+  box-shadow: 1.25rem 1.25rem 0 0 var(--accent-tint), var(--shadow-soft);
+}
+@media (max-width: 760px) {
+  #ueber-mich .photo {
+    margin-right: 1rem;
+  }
+}
+
+/* Heutige Rollen als kleine Karten */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  border-top: 0;
+}
+.roles li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.1rem 1.2rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: rgb(255 255 255 / 0.45);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.roles li:hover {
+  border-color: var(--accent-tint);
+  box-shadow: 0 0.75rem 1.5rem -1rem rgb(11 44 74 / 0.35);
+}
+.roles a {
+  font-weight: 600;
+  font-size: 1.08rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.roles a::after {
+  content: ' ↗';
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.85em;
+}
+.roles a:hover {
+  color: var(--accent);
+}
+.roles em {
+  font-style: normal;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.roles span {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+@media (max-width: 1000px) {
+  .roles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Angebote: runde Karten, Hauptkarte mit Verlauf, leichtes Anheben */
+.offer-card {
+  border-radius: var(--r-lg);
+  border-top: 0;
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.offer-card--main {
+  background: linear-gradient(155deg, #1a4f80 0%, var(--accent) 45%, var(--accent-deep) 100%);
+  box-shadow: var(--shadow-soft);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .offer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: inset 0 0 0 1px var(--accent-tint), 0 1.5rem 3rem -1.5rem rgb(11 44 74 / 0.4);
+  }
+  .offer-card--main:hover {
+    box-shadow: 0 2rem 3.5rem -1.5rem rgb(11 44 74 / 0.55);
+  }
+}
+
+/* Bildstrecke Draußen */
+.strip .photo picture {
+  border-radius: var(--r-md);
+}
+
+/* Skandinavien: zwei Bilder überlappend */
+.north__photos {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+}
+.north__photos .photo:first-child picture {
+  border-radius: var(--r-lg);
+}
+.north__photos .photo:last-child {
+  position: relative;
+  z-index: 1;
+  margin-left: -3.5rem;
+}
+.north__photos .photo:last-child picture {
+  border-radius: var(--r-lg);
+  outline: 6px solid var(--paper);
+}
+
+/* Statement mit großem Anführungszeichen */
+.statement {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(155deg, #1a4f80 0%, var(--accent) 50%, var(--accent-deep) 100%);
+}
+.statement p::before {
+  content: '“';
+  display: block;
+  font-family: var(--display);
+  font-style: normal;
+  font-size: 5rem;
+  line-height: 0.6;
+  color: var(--accent-tint);
+  opacity: 0.6;
+  margin-bottom: 0.4rem;
+}
+
+/* Mentoren: Porträts mit Ring */
+.mentors .photo picture {
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--accent-tint);
+}
+.mentors .photo {
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Benno und ich: Polaroid */
+.benno .photo {
+  justify-self: center;
+  max-width: 30rem;
+  padding: 0.9rem 0.9rem 1.1rem;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2rem 3rem -1.5rem rgb(11 44 74 / 0.4), 0 0 0 1px rgb(0 0 0 / 0.04);
+  transform: rotate(-2deg);
+  transition: transform 0.5s var(--ease);
+}
+.benno .photo picture {
+  border-radius: 3px;
+  box-shadow: none;
+}
+.benno .photo figcaption {
+  margin-top: 0.9rem;
+  padding-inline: 0.25rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .benno .photo:hover {
+    transform: rotate(0deg);
+  }
+}
+
+/* Buchabschnitt und Kontakt als abgerundete Flächen */
+.book-feature,
+.contact {
+  width: min(100% - 2 * var(--gutter) + 2rem, var(--max) + 6rem);
+  margin-inline: auto;
+  border-radius: calc(var(--r-lg) + 8px);
+}
+.contact {
+  margin-bottom: 2rem;
+}
+@media (max-width: 760px) {
+  .book-feature,
+  .contact {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+/* Buchempfehlungen */
+.rec-cover {
+  border-radius: 4px 10px 10px 4px;
+  transition: transform 0.35s var(--ease);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rec:hover .rec-cover {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+/* Beiträge */
+.post-card .photo picture,
+.article .cover .photo picture {
+  border-radius: var(--r-lg);
+}
+.post-card .photo picture {
+  border-radius: var(--r-md);
+}
+.article .body h2 {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  margin-top: 1.8em;
+}
+.article .body h3 {
+  margin-top: 1.5em;
+}
+.article .body blockquote {
+  margin: 1.5em 0;
+  padding: 0.25em 0 0.25em 1.25em;
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+  font-size: 1.12em;
+  color: var(--ink-soft);
+}
+.article .body ul {
+  padding-left: 1.2em;
+}
+.article .body li {
+  margin-bottom: 0.35em;
+}
+
+/* Dezentes Einblenden beim Scrollen (nur mit JavaScript, ohne Bewegungsreduktion) */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  }
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+.offer-card[data-reveal]:nth-child(2),
+.rec[data-reveal]:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.offer-card[data-reveal]:nth-child(3),
+.rec[data-reveal]:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.offer-card[data-reveal]:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+/* Skandinavien: Trolltunga als Hauptbild, Wasserfall klein überlappend */
+.north__photos {
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  align-items: end;
+  padding-bottom: 2.5rem;
+}
+.north__photos .photo:first-child {
+  aspect-ratio: 4 / 5;
+}
+.north__photos .photo:last-child {
+  aspect-ratio: 3 / 4;
+  margin: 0 0 -2.5rem -3rem;
+}
+
+/* Bildnachweis in Beitragskarten nicht als Link darstellen */
+.post-card a figcaption {
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.article-people {
+  max-width: 32rem;
+  margin: 2rem 0 2.5rem;
+}

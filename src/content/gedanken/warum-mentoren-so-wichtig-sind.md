@@ -4,6 +4,11 @@ description: Niemand kommt allein so weit. Josef Heitzer, Arnold Hauk, Peter Pri
 category: Führung und Zusammenarbeit
 draft: false
 pubDate: 2026-10-09
+people:
+  - { photo: mentor-heitzer, name: Josef Heitzer }
+  - { photo: mentor-hauk, name: Arnold Hauk }
+  - { photo: mentor-prinz, name: Peter Prinz }
+  - { photo: mentor-loeffler, name: Benno Löffler }
 ---
 
 Man sagt ja gerne:

@@ -130,15 +130,14 @@ test('erster Beitrag ist veröffentlicht, mit Bildcredit und Quellen', async ({ 
   await expect(page.locator('.post-card')).toHaveCount(published.length);
 });
 
-test('Buch: Hero verweist auf Buchabschnitt, Abschnitt verlinkt Buch-Website', async ({ page }) => {
+test('Buch: Hero-Buch und Buchabschnitt verlinken die Buch-Website', async ({ page }) => {
   for (const width of [360, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
     const heroBook = page.locator('.hero-book');
     await expect(heroBook).toBeVisible();
     await page.screenshot({ path: `test-results/screens/hero-${width}.png` });
-    await heroBook.click();
-    await expect(page).toHaveURL(/#buch$/);
+    await expect(heroBook).toHaveAttribute('href', 'https://hoechstleistungskiller.v-und-s.de/');
     await expect(page.locator('#buch').getByRole('link', { name: 'Ins Buch reinlesen' })).toHaveAttribute('href', 'https://hoechstleistungskiller.v-und-s.de/');
   }
 });

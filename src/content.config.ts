@@ -26,6 +26,8 @@ const gedanken = defineCollection({
       pubDate: z.coerce.date().optional(),
       updatedDate: z.coerce.date().optional(),
       cover: z.enum(photoIds).optional(),
+      // Kleine runde Porträts unter dem Titel, z. B. für Beiträge über Menschen
+      people: z.array(z.object({ photo: z.enum(photoIds), name: z.string() })).default([]),
       sources: z.array(z.object({ label: z.string(), url: z.url() })).default([]),
     })
     .refine((p) => p.draft || p.pubDate, {

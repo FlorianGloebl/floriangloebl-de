@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, category, cover, sources, draft } = post.data;
+const { title, description, pubDate, updatedDate, category, cover, people = [], sources, draft } = post.data;
 const { Content } = await render(post);
 ---
 
@@ -26,6 +26,16 @@ const { Content } = await render(post);
         </p>
         <h1>{title}</h1>
         <p class="subline">{description}</p>
+        {people.length > 0 && (
+          <ul class="mentors article-people">
+            {people.map((p) => (
+              <li>
+                <Photo id={p.photo} sizes="96px" widths={[96, 192, 250]} />
+                <span>{p.name}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </header>
       {cover && (
         <div class="cover">

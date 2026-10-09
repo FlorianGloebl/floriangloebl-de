@@ -9,6 +9,32 @@ import { getPosts } from '../data/posts';
 
 const latest = (await getPosts()).slice(0, 2);
 const c = site.contact;
+const roles = [
+  {
+    name: 'Glöbl & Partner',
+    url: 'https://www.g-u-p.de/',
+    role: 'Geschäftsführer',
+    text: 'Beratung für produzierende Mittelständler, mit Fokus auf Wertschöpfung statt auf Methoden: Organisation, Führung & Nachfolge, Lean, Prozesse & Supply Chain sowie ERP, KI & Digitalisierung.',
+  },
+  {
+    name: 'Coolab AG',
+    url: 'https://coolab.ch/',
+    role: 'Mitgründer & Verwaltungsrat',
+    text: 'Gemeinsam mit Maria Büchner, Fabio Oro und Benno Löffler. Klarheit, Fokus und tragfähige Strukturen für Schweizer KMU – mit KI dort, wo sie echten Mehrwert bringt.',
+  },
+  {
+    name: 'Werkskante',
+    url: 'https://www.werkskante.de/',
+    role: 'Inhaber · Möglichmacher',
+    text: 'Arbeitssicherheit, die rechtlich stimmt und im Betrieb funktioniert. Daraus entsteht gerade eine Plattform, auf der sich andere selbstständig machen können – ich unterstütze sie dabei.',
+  },
+  {
+    name: 'Vollmer & Scheffczyk',
+    url: 'https://v-und-s.de/',
+    role: 'Partner',
+    text: '„Wertschöpfung neu beraten“: Lean, Agilität und Multiprojektmanagement für mehr Wettbewerbskraft im produzierenden Mittelstand.',
+  },
+];
 const mentors = [
   { id: 'mentor-heitzer', name: 'Josef Heitzer' },
   { id: 'mentor-hauk', name: 'Arnold Hauk' },
@@ -27,7 +53,7 @@ const mentors = [
         <p class="lead">
           Ich begleite Menschen im Coaching und unterstütze Führungskräfte bei ihren Fragen und Entscheidungen. Als
           Mentor teile ich meine Erfahrung, und wer gründen will, dem helfe ich beim Start. In meiner freien Zeit bin ich
-          am liebsten in Bewegung: beim Bergsteigen, auf dem Rennrad, beim Skifahren und auf dem Tennisplatz.
+          am liebsten in Bewegung: beim Bergsteigen, auf dem Rennrad, beim Skifahren oder auf dem Tennisplatz.
         </p>
         <div class="actions">
           <a class="btn btn--primary" href="#coaching">Coaching kennenlernen</a>
@@ -36,7 +62,7 @@ const mentors = [
       </div>
       <div class="hero__media">
         <Photo id="hero-berge" sizes="(max-width: 760px) 100vw, 46vw" priority />
-        <a class="hero-book" href="#buch">
+        <a class="hero-book" href={book.url} rel="noopener" aria-label={`Zur Website des Buchs ${book.title}`}>
           <Book />
           <span class="hero-book__label">Neues Buch · {book.releaseShort}</span>
         </a>
@@ -53,44 +79,20 @@ const mentors = [
           <h2 id="mein-weg">Mein Weg</h2>
           <p>
             Ich bin Florian Glöbl und lebe in Laberweinting. Fast 16 Jahre lang war ich bei einem Maschinenbauer in der
-            Region: angefangen in der Beschaffung, dann in Logistik, Produktionsplanung und Materialwirtschaft, später
-            als Leiter von Arbeitsvorbereitung, Materialwirtschaft und Versand und zuletzt als Mitglied der Geschäftsleitung. Dort
-            habe ich erlebt, wie eng gute Zusammenarbeit und das tägliche Funktionieren eines Unternehmens
-            zusammenhängen.
+            Region. Angefangen habe ich in der Beschaffung, über Logistik und Produktionsplanung ging es in die
+            Materialwirtschaft. Später habe ich Arbeitsvorbereitung, Materialwirtschaft und Versand geleitet, zuletzt war
+            ich Mitglied der Geschäftsleitung. Dort habe ich erlebt, wie eng gute Zusammenarbeit und das tägliche
+            Funktionieren eines Unternehmens zusammenhängen.
           </p>
           <p>Heute bin ich in mehreren Rollen unterwegs:</p>
           <ul class="roles">
-            <li>
-              <strong><a href="https://www.g-u-p.de/" rel="noopener">Glöbl &amp; Partner</a></strong>
-              <span>
-                Geschäftsführer, Berater und Sparringspartner. Wir machen produzierende Unternehmen im Mittelstand
-                wirksamer, mit Fokus auf Wertschöpfung statt Methodik: Organisation, Führung &amp; Nachfolge · Lean,
-                Prozesse &amp; Supply Chain · ERP, KI &amp; Digitalisierung. Ehrlich, direkt, wirksam.
-              </span>
-            </li>
-            <li>
-              <strong><a href="https://coolab.ch/" rel="noopener">Coolab AG</a></strong>
-              <span>
-                Mitgründer und Verwaltungsrat, gemeinsam mit Maria Büchner, Fabio Oro und Benno Löffler. Wir schaffen für
-                Schweizer KMU Klarheit, Fokus und Strukturen, in denen wirtschaftlich relevante Probleme dauerhaft gelöst
-                werden – mit KI dort, wo sie echten Mehrwert bringt. Prototypen statt PowerPoint.
-              </span>
-            </li>
-            <li>
-              <strong><a href="https://www.werkskante.de/" rel="noopener">Werkskante</a></strong>
-              <span>
-                Meine Einzelfirma: Arbeitssicherheit für den produzierenden Mittelstand, die rechtlich richtig ist und im
-                Betrieb wirklich funktioniert. Daraus wird gerade eine Plattform, auf der sich andere selbstständig machen
-                können. Ich bin dabei eher der Möglichmacher und unterstütze sie.
-              </span>
-            </li>
-            <li>
-              <strong><a href="https://v-und-s.de/" rel="noopener">Vollmer &amp; Scheffczyk</a></strong>
-              <span>
-                Partner. „Wertschöpfung neu beraten“: mit Lean, Agilität und Multiprojektmanagement für mehr
-                Wettbewerbskraft im produzierenden Mittelstand.
-              </span>
-            </li>
+            {roles.map((r) => (
+              <li>
+                <a href={r.url} rel="noopener">{r.name}</a>
+                <em>{r.role}</em>
+                <span>{r.text}</span>
+              </li>
+            ))}
           </ul>
           <p>
             Mich interessiert, was Menschen und Unternehmen in ihrer konkreten Situation weiterhilft. Und ganz ehrlich:
@@ -106,13 +108,13 @@ const mentors = [
   <section class="section" id="coaching" aria-labelledby="angebote">
     <div class="wrap">
       <p class="kicker">Angebote</p>
-      <div class="offers-intro">
+      <div class="offers-intro" data-reveal>
         <h2 id="angebote">Wobei ich dich unterstützen kann</h2>
         <p class="subline">Umfang und Honorar vereinbaren wir passend zu deinem Anliegen.</p>
       </div>
 
       <div class="offer-cards">
-        <article class="offer-card offer-card--main">
+        <article class="offer-card offer-card--main" data-reveal>
           <p class="offer-num" aria-hidden="true">01</p>
           <h3>Coaching</h3>
           <p class="subline">Für dich persönlich und für Führungskräfte</p>
@@ -135,7 +137,7 @@ const mentors = [
           </div>
         </article>
 
-        <article class="offer-card">
+        <article class="offer-card" data-reveal>
           <p class="offer-num" aria-hidden="true">02</p>
           <h3>Mentoring</h3>
           <p class="subline">Begleitung über einen längeren Zeitraum</p>
@@ -154,7 +156,7 @@ const mentors = [
           </div>
         </article>
 
-        <article class="offer-card" id="weitere-angebote">
+        <article class="offer-card" id="weitere-angebote" data-reveal>
           <p class="offer-num" aria-hidden="true">03</p>
           <h3>Gründen</h3>
           <p class="subline">Eine Idee auf eigene Beine stellen</p>
@@ -172,7 +174,7 @@ const mentors = [
           </div>
         </article>
 
-        <article class="offer-card">
+        <article class="offer-card" data-reveal>
           <p class="offer-num" aria-hidden="true">04</p>
           <h3>Von der Idee zum Prototyp</h3>
           <p class="subline">Schnell zum ersten greifbaren Ergebnis</p>
@@ -219,28 +221,28 @@ const mentors = [
         </div>
       </div>
 
-      <div class="strip">
+      <div class="strip" data-reveal>
         <Photo id="draussen-gipfelkreuz" sizes="(max-width: 760px) 50vw, 280px" widths={[360, 560, 720]} />
         <Photo id="draussen-grat" sizes="(max-width: 760px) 50vw, 280px" widths={[360, 560, 720]} />
         <Photo id="draussen-skitour" sizes="(max-width: 760px) 50vw, 280px" widths={[360, 560, 720]} />
         <Photo id="draussen-rennrad" sizes="(max-width: 760px) 50vw, 280px" widths={[360, 560, 720]} />
       </div>
 
-      <div class="north" id="skandinavien">
+      <div class="north" id="skandinavien" data-reveal>
         <div class="prose">
           <h3>Was mich an Skandinavien begeistert</h3>
           <p>
             Ich mag die skandinavischen Länder sehr. Da ist zum einen die raue Natur: Fjorde, Felsen, Wasserfälle und
-            eine Weite, in der man sich selbst ziemlich klein vorkommt. Auf der Trolltunga in Norwegen zu stehen, weit
+            eine Weite, in der man sich ganz schön klein vorkommt. Auf der Trolltunga in Norwegen zu stehen, weit
             über dem Fjord, gehört zu den Momenten, die ich nicht vergesse.
           </p>
           <p>
             Zum anderen begeistert mich die Offenheit für Fortschritt, die ich mit diesen Ländern verbinde.
-            Digitalisierung, Elektromobilität und erneuerbare Energien wie Wind und Sonne interessieren mich, und dort
-            habe ich das Gefühl, dass vieles davon selbstverständlicher zum Alltag gehört.
+            Digitalisierung, Elektromobilität und erneuerbare Energien wie Wind und Sonne interessieren mich. Dort habe
+            ich das Gefühl, dass vieles davon ganz selbstverständlich zum Alltag gehört.
           </p>
           <p>
-            Genau diese Verbindung spricht mich an: wilde Natur und der Mut, neue Wege auszuprobieren. Beides nehme ich
+            Genau diese Verbindung spricht mich an: raue Natur und der Mut, neue Wege auszuprobieren. Beides nehme ich
             gern mit nach Hause.
           </p>
         </div>
@@ -270,6 +272,7 @@ const mentors = [
             hinterfragt haben. Sie haben mir Erfahrung weitergegeben, Perspektiven eröffnet und Raum zur Entwicklung
             gelassen. Dieses Vertrauen prägt, wie ich heute andere begleite.
           </p>
+          <p><a href="/gedanken/warum-mentoren-so-wichtig-sind/">Wie mich die vier gefördert haben →</a></p>
           <ul class="mentors">
             {mentors.map((m) => (
               <li>
@@ -293,7 +296,7 @@ const mentors = [
         </div>
       </div>
 
-      <div class="benno split split--flip">
+      <div class="benno split split--flip" data-reveal>
         <Photo id="benno-eisbaden" sizes="(max-width: 760px) 100vw, 520px" widths={[480, 720]} caption />
         <div class="prose">
           <h3>Benno und ich</h3>
@@ -321,7 +324,7 @@ const mentors = [
   <!-- Gemeinsames Buch mit Benno -->
   <section class="book-feature" id="buch" aria-labelledby="buch-titel">
     <div class="wrap">
-      <div class="book-feature__visual">
+      <div class="book-feature__visual" data-reveal>
         <a href={book.url} rel="noopener" aria-label={`Website zum Buch ${book.title}`}><Book /></a>
       </div>
       <div class="prose">
@@ -351,7 +354,7 @@ const mentors = [
       <div class="recs">
         {recommendations.map((r) => {
           return (
-            <article class="rec">
+            <article class="rec" data-reveal>
               <div class:list={['rec-cover', `rec-cover--${r.tone}`]} aria-hidden="true">
                 <p class="rc-author">{r.author}</p>
                 <p class="rc-title">
