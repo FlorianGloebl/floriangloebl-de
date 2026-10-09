@@ -14,7 +14,7 @@ export const book = {
 export const recommendations = [
   {
     title: 'Die Kunst des Konflikts',
-    cover: ['Die Kunst', 'des Konflikts'],
+    coverId: 'cover-eidenschink',
     author: 'Klaus Eidenschink',
     meta: 'Carl-Auer, 2023',
     about:
@@ -24,11 +24,10 @@ export const recommendations = [
     buyLabel: 'Beim Verlag kaufen',
     site: 'https://eidenschink.de/',
     siteLabel: 'eidenschink.de',
-    tone: 'konflikt',
   },
   {
     title: 'Saugute Zusammenarbeit',
-    cover: ['Saugute', 'Zusammen-', 'arbeit'],
+    coverId: 'cover-loeffler',
     author: 'Benno Löffler',
     meta: 'Eine brutal ehrliche Sammlung von Denkansätzen',
     about:
@@ -38,11 +37,10 @@ export const recommendations = [
     buyLabel: 'Buch kaufen',
     site: 'https://v-und-s.de/team/',
     siteLabel: 'v-und-s.de',
-    tone: 'saugut',
   },
   {
     title: 'Wenn Grenzen keine sind',
-    cover: ['Wenn Grenzen', 'keine sind'],
+    coverId: 'cover-malik',
     author: 'Fredmund Malik',
     meta: 'Management und Bergsteigen · Campus, 2014',
     about:
@@ -52,6 +50,5 @@ export const recommendations = [
     buyLabel: 'Buch kaufen',
     site: 'https://www.malik-management.com/',
     siteLabel: 'malik-management.com',
-    tone: 'grenzen',
   },
 ];

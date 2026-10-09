@@ -81,6 +81,30 @@
     "alt": "Porträt von Benno Löffler",
     "credit": "",
     "caption": "",
-    "focus": "50% 40%"
+    "focus": "50% 50%"
+  },
+  "joey-kelly": {
+    "alt": "Florian Glöbl und Joey Kelly stehen nebeneinander vor einem Banner der neumeier AG beim SAP-Usertreffen, Joey Kelly mit schwarzer Kappe zeigt den Daumen.",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 35%"
+  },
+  "cover-eidenschink": {
+    "alt": "Buchcover „Die Kunst des Konflikts“ von Klaus Eidenschink",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 50%"
+  },
+  "cover-loeffler": {
+    "alt": "Buchcover „Saugute Zusammenarbeit“ von Benno Löffler",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 50%"
+  },
+  "cover-malik": {
+    "alt": "Buchcover „Wenn Grenzen keine sind – Management und Bergsteigen“ von Fredmund Malik",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 50%"
   }
 }

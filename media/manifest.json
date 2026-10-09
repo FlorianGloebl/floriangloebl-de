@@ -198,19 +198,65 @@
     },
     {
       "id": "mentor-loeffler",
-      "source": "originals/wegbereiter-linkedin.png",
+      "source": "originals/benno-freigestellt.jpg",
       "status": "approved",
       "alt": "Porträt von Benno Löffler",
       "credit": "",
       "caption": "",
-      "focus": "50% 40%",
+      "focus": "50% 50%",
       "crop": [
-        290,
-        290,
-        250,
-        250
+        50,
+        40,
+        520,
+        520
       ],
-      "note": "Ausschnitt aus Flos LinkedIn-Beitrag 'Wegbereiter' (Dez. 2025), auf Flos Wunsch. Einverständnis liegt laut Flo vor (09.10.2026)."
+      "note": "Autorenfoto aus dem Buchprojekt, Hintergrund per rembg entfernt (weiß wie bei den anderen), Kopf mittig. Einverständnis liegt laut Flo vor (09.10.2026)."
+    },
+    {
+      "id": "joey-kelly",
+      "source": "IMG_20261001_122135.JPG",
+      "status": "approved",
+      "alt": "Florian Glöbl und Joey Kelly stehen nebeneinander vor einem Banner der neumeier AG beim SAP-Usertreffen, Joey Kelly mit schwarzer Kappe zeigt den Daumen.",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 35%",
+      "note": "SAP-Usertreffen der neumeier AG, Jahnstadion Regensburg, laut Dateiname 01.10.2026. Auch in Flos LinkedIn-Beitrag."
+    },
+    {
+      "id": "cover-eidenschink",
+      "source": "originals/cover-download/eidenschink-kunst-des-konflikts.png",
+      "status": "approved",
+      "alt": "Buchcover „Die Kunst des Konflikts“ von Klaus Eidenschink",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 50%",
+      "note": "Cover von carl-auer.de (Produktbild), 09.10.2026."
+    },
+    {
+      "id": "cover-loeffler",
+      "source": "originals/cover-download/amz1.jpg",
+      "status": "approved",
+      "alt": "Buchcover „Saugute Zusammenarbeit“ von Benno Löffler",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 50%",
+      "note": "Cover vom Amazon-Produktbild (Link von v-und-s.de), 09.10.2026."
+    },
+    {
+      "id": "cover-malik",
+      "source": "originals/cover-download/malik-wenn-grenzen-keine-sind.png",
+      "status": "approved",
+      "alt": "Buchcover „Wenn Grenzen keine sind – Management und Bergsteigen“ von Fredmund Malik",
+      "credit": "",
+      "caption": "",
+      "focus": "50% 50%",
+      "crop": [
+        49,
+        14,
+        505,
+        686
+      ],
+      "note": "Cover von malik-management.com, ohne Spiegelung zugeschnitten, 09.10.2026."
     }
   ]
 }

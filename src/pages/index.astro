@@ -137,7 +137,7 @@ const mentors = [
           </div>
         </article>
 
-        <article class="offer-card" data-reveal>
+        <article class="offer-card offer-card--main" data-reveal>
           <p class="offer-num" aria-hidden="true">02</p>
           <h3>Mentoring</h3>
           <p class="subline">Begleitung über einen längeren Zeitraum</p>
@@ -152,11 +152,11 @@ const mentors = [
             individuell.
           </div>
           <div class="actions">
-            <a class="btn btn--ghost" href={mailto('Anfrage Mentoring')}>Mentoring anfragen</a>
+            <a class="btn btn--primary" href={mailto('Anfrage Mentoring')}>Mentoring anfragen</a>
           </div>
         </article>
 
-        <article class="offer-card" id="weitere-angebote" data-reveal>
+        <article class="offer-card offer-card--main" id="weitere-angebote" data-reveal>
           <p class="offer-num" aria-hidden="true">03</p>
           <h3>Gründen</h3>
           <p class="subline">Eine Idee auf eigene Beine stellen</p>
@@ -170,11 +170,11 @@ const mentors = [
             entsprechenden Fachleuten.
           </div>
           <div class="actions">
-            <a class="btn btn--ghost" href={mailto('Anfrage Gründung')}>Gründung besprechen</a>
+            <a class="btn btn--primary" href={mailto('Anfrage Gründung')}>Gründung besprechen</a>
           </div>
         </article>
 
-        <article class="offer-card" data-reveal>
+        <article class="offer-card offer-card--main" data-reveal>
           <p class="offer-num" aria-hidden="true">04</p>
           <h3>Von der Idee zum Prototyp</h3>
           <p class="subline">Schnell zum ersten greifbaren Ergebnis</p>
@@ -189,7 +189,7 @@ const mentors = [
             gemeinsam.
           </div>
           <div class="actions">
-            <a class="btn btn--ghost" href={mailto('Anfrage Prototyp')}>Idee besprechen</a>
+            <a class="btn btn--primary" href={mailto('Anfrage Prototyp')}>Idee besprechen</a>
           </div>
         </article>
       </div>
@@ -254,11 +254,28 @@ const mentors = [
     </div>
   </section>
 
-  <div class="statement">
+  <section class="statement" aria-labelledby="gespraech-titel">
     <div class="wrap">
-      <p>Ein gutes Gespräch heißt für mich: zuhören, ausreden lassen – und die eigene Meinung sagen.</p>
+      <p class="dialog__kicker" id="gespraech-titel">Ein gutes Gespräch heißt für mich</p>
+      <ol class="dialog">
+        <li data-reveal>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 24h4M18 16v16M24 10v28M30 16v16M36 24h4" /></svg>
+          <strong>Zuhören.</strong>
+          <span>Verstehen wollen, was den anderen wirklich bewegt.</span>
+        </li>
+        <li data-reveal>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="15" y="12" width="5" height="24" rx="2.5" /><rect x="28" y="12" width="5" height="24" rx="2.5" /></svg>
+          <strong>Ausreden lassen.</strong>
+          <span>Auch dann, wenn ich schon eine Idee im Kopf habe.</span>
+        </li>
+        <li data-reveal>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 14a5 5 0 0 1 5-5h20a5 5 0 0 1 5 5v13a5 5 0 0 1-5 5H21l-8 7v-7h1a5 5 0 0 1-5-5z" /></svg>
+          <strong>Meinung sagen.</strong>
+          <span>Ehrlich, direkt – und auf Augenhöhe.</span>
+        </li>
+      </ol>
     </div>
-  </div>
+  </section>
 
   <!-- Wegbereiter und Haltung -->
   <section class="section" id="wegbereiter" aria-labelledby="menschen">
@@ -299,7 +316,7 @@ const mentors = [
       <div class="benno split split--flip" data-reveal>
         <Photo id="benno-eisbaden" sizes="(max-width: 760px) 100vw, 520px" widths={[480, 720]} caption />
         <div class="prose">
-          <h3>Benno und ich</h3>
+          <h3>Eiskalt verbunden</h3>
           <p>
             Benno Löffler inspiriert mich. Er ist „schuld“ daran, dass ich am Ende den Schritt in die Selbstständigkeit
             gewagt habe, und dafür bin ich ihm total dankbar.
@@ -359,12 +376,9 @@ const mentors = [
         {recommendations.map((r) => {
           return (
             <article class="rec" data-reveal>
-              <div class:list={['rec-cover', `rec-cover--${r.tone}`]} aria-hidden="true">
-                <p class="rc-author">{r.author}</p>
-                <p class="rc-title">
-                  {r.cover.map((line) => <span>{line}</span>)}
-                </p>
-              </div>
+              <a class="rec-cover" href={r.buy} rel="noopener" aria-label={`${r.title} kaufen`}>
+                <Photo id={r.coverId} sizes="220px" widths={[240, 480]} />
+              </a>
               <h3>{r.title}</h3>
               <p class="by">{r.author} · {r.meta}</p>
               <p>{r.about}</p>

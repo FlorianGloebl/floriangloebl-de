@@ -82,8 +82,8 @@ test('Entwürfe sind für Besucher unsichtbar', async ({ page, request }) => {
 
 test('Bilder: Alttexte, feste Maße, nur erstes Bild priorisiert, Bildcredit sichtbar', async ({ page }) => {
   await page.goto('/');
-  // Beitragsbilder im Bereich „Aktuelle Gedanken“ zählen nicht zu den Startbildern.
-  const imgs = page.locator('main img:not(#gedanken img)');
+  // Beitragsbilder („Aktuelle Gedanken“) und Buchcover zählen nicht zu den Startbildern.
+  const imgs = page.locator('main img:not(#gedanken img):not(.rec-cover img)');
   const n = await imgs.count();
   expect(n).toBeGreaterThan(0);
   // 9 große Bilder + 4 kleine Mentorenporträts (auf Flos Wunsch mehr als die ursprünglich geplanten 6–8)
