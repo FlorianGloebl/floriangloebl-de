@@ -18,7 +18,7 @@ Naja. Ich sehe das anders.
 
 **Niemand kommt allein so weit.**
 
-Es braucht fast immer Menschen, die einem Wissen und Erfahrung vermitteln. Die einem Raum und Zeit geben, um etwas wirklich zu können. Die gezielt Fragen stellen, andere Perspektiven eröffnen und vor allem: Vertrauen schenken.
+Es braucht fast immer Menschen, die einem Wissen und Erfahrung vermitteln. Die einem Raum und Zeit geben, um sich echtes Können zu erarbeiten. Die gezielt Fragen stellen, andere Perspektiven eröffnen und vor allem: Vertrauen schenken.
 
 ## Was Mentoring für mich bedeutet
 

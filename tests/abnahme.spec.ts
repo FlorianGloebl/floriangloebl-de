@@ -31,7 +31,7 @@ test('Coaching ist im Menü und erstes Angebot', async ({ page }) => {
   await expect(page.locator('#coaching .offer-card')).toHaveCount(4);
   await expect(page.locator('#weitere-angebote')).toBeAttached();
   const order = await page.locator('main > section[id], main > div.statement').evaluateAll((els) => els.map((e) => e.id || 'statement'));
-  expect(order.slice(0, 3)).toEqual(['ueber-mich', 'coaching', 'draussen']);
+  expect(order.slice(0, 3)).toEqual(['coaching', 'ueber-mich', 'draussen']);
 });
 
 test('Kontakt-Links und Coaching-Button', async ({ page }) => {

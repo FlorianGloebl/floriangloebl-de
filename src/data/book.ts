@@ -33,7 +33,7 @@ export const recommendations = [
     meta: 'Eine brutal ehrliche Sammlung von Denkansätzen',
     about:
       'Wie Unternehmen besser funktionieren: Denkansätze zu Organisation, Führung und Zusammenarbeit – mit Blick auf Wertschöpfung und Wettbewerbskraft.',
-    why: 'Es lädt dazu ein, ein wenig anders über Bekanntes nachzudenken. Genau das mag ich auch an unseren Diskussionen.',
+    why: 'Das Buch lädt dazu ein, ein wenig anders über Bekanntes nachzudenken. Genau das mag ich auch an unseren Diskussionen.',
     buy: 'https://www.amazon.de/SAUGUTE-ZUSAMMENARBEIT-Marktdruck-erzeugen-aushalten/dp/3000680160',
     buyLabel: 'Buch kaufen',
     site: 'https://v-und-s.de/team/',
@@ -46,7 +46,7 @@ export const recommendations = [
     meta: 'Management und Bergsteigen · Campus, 2014',
     about:
       'Was Führungskräfte von Alpinisten lernen können: Ausdauer, Selbstmotivation, Umgang mit Risiko und Verantwortung.',
-    why: 'Es verbindet zwei Themen, die mir nah sind: die Berge und die Frage, wie Menschen Verantwortung übernehmen. Das Buch hat auch die Gestaltung dieser Website inspiriert.',
+    why: 'Das Buch verbindet zwei Themen, die mir nah sind: die Berge und die Frage, wie Menschen Verantwortung übernehmen. Außerdem hat es die Gestaltung dieser Website inspiriert.',
     buy: 'https://www.hugendubel.de/de/search?q=wenn%20grenzen%20keine%20sind%20malik',
     buyLabel: 'Buch kaufen',
     site: 'https://www.malik-management.com/',

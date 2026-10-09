@@ -51,9 +51,8 @@ const mentors = [
         <p class="kicker">Coaching · Mentoring · Gründen</p>
         <h1 id="hallo">Hallo, ich bin Flo.</h1>
         <p class="lead">
-          Ich begleite Menschen im Coaching und unterstütze Führungskräfte bei ihren Fragen und Entscheidungen. Als
-          Mentor teile ich meine Erfahrung, und wer gründen will, dem helfe ich beim Start. In meiner freien Zeit bin ich
-          am liebsten in Bewegung: beim Bergsteigen, auf dem Rennrad, beim Skifahren oder auf dem Tennisplatz.
+          Ich helfe dir, Klarheit zu gewinnen und die nächsten Schritte zu gehen: im Coaching, als Mentor und beim
+          Gründen. Ehrlich, direkt und auf Augenhöhe.
         </p>
         <div class="actions">
           <a class="btn btn--primary" href="#coaching">Coaching kennenlernen</a>
@@ -66,40 +65,6 @@ const mentors = [
           <Book />
           <span class="hero-book__label">Neues Buch · {book.releaseShort}</span>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kurzbiografie -->
-  <section class="section" id="ueber-mich" aria-labelledby="mein-weg">
-    <div class="wrap">
-      <p class="kicker">Über mich</p>
-      <div class="split">
-        <div class="prose">
-          <h2 id="mein-weg">Mein Weg</h2>
-          <p>
-            Ich bin Florian Glöbl und lebe in Laberweinting. Fast 16 Jahre lang war ich bei einem Maschinenbauer in der
-            Region. Angefangen habe ich in der Beschaffung, über Logistik und Produktionsplanung ging es in die
-            Materialwirtschaft. Später habe ich Arbeitsvorbereitung, Materialwirtschaft und Versand geleitet, zuletzt war
-            ich Mitglied der Geschäftsleitung. Dort habe ich erlebt, wie eng gute Zusammenarbeit und das tägliche
-            Funktionieren eines Unternehmens zusammenhängen.
-          </p>
-          <p>Heute bin ich in mehreren Rollen unterwegs:</p>
-          <ul class="roles">
-            {roles.map((r) => (
-              <li>
-                <a href={r.url} rel="noopener">{r.name}</a>
-                <em>{r.role}</em>
-                <span>{r.text}</span>
-              </li>
-            ))}
-          </ul>
-          <p>
-            Mich interessiert, was Menschen und Unternehmen in ihrer konkreten Situation weiterhilft. Und ganz ehrlich:
-            Mir macht es auch Spaß, ab und zu selbst zu programmieren.
-          </p>
-        </div>
-        <Photo id="portrait" sizes="(max-width: 760px) 100vw, 40vw" />
       </div>
     </div>
   </section>
@@ -121,7 +86,7 @@ const mentors = [
           <p>
             Wenn eine Entscheidung ansteht, die eigene Rolle unklar wird oder Führung gerade mehr Fragen als Antworten
             bringt, kann ein Gespräch von außen helfen. Ich unterstütze dich dabei, deine Situation zu sortieren und
-            nächste Schritte zu entwickeln, die für dich passen.
+            nächste Schritte zu entwickeln, die zu dir passen.
           </p>
           <div class="offer-detail">
             <strong>Typische Anlässe</strong>
@@ -166,7 +131,7 @@ const mentors = [
           </p>
           <div class="offer-detail">
             <strong>Ergebnis</strong>
-            Ein klares Angebot und erste Kundengespräche. Steuerliche und rechtliche Fragen gehören zu den
+            Ein klares Angebot und erste Kundengespräche. Steuerliche und rechtliche Fragen klärst du am besten mit den
             entsprechenden Fachleuten.
           </div>
           <div class="actions">
@@ -179,8 +144,8 @@ const mentors = [
           <h3>Von der Idee zum Prototyp</h3>
           <p class="subline">Schnell zum ersten greifbaren Ergebnis</p>
           <p>
-            Eine Idee oder ein Prozess soll nicht ewig auf dem Papier bleiben. Gemeinsam bringen wir sie zum ersten
-            Ergebnis oder Prototyp, mit dem man arbeiten und lernen kann. Das kann ein neu gedachter Ablauf sein, eine
+            Eine gute Idee soll nicht ewig auf dem Papier bleiben. Gemeinsam bringen wir sie zu einem ersten Ergebnis
+            oder Prototyp, mit dem man arbeiten und lernen kann. Das kann ein neu gedachter Ablauf sein, eine
             einfache Website oder ein kleines digitales Werkzeug.
           </p>
           <div class="offer-detail">
@@ -196,6 +161,40 @@ const mentors = [
     </div>
   </section>
 
+  <!-- Kurzbiografie -->
+  <section class="section" id="ueber-mich" aria-labelledby="mein-weg">
+    <div class="wrap">
+      <p class="kicker">Über mich</p>
+      <div class="split">
+        <div class="prose">
+          <h2 id="mein-weg">Mein Weg</h2>
+          <p>
+            Ich bin Florian Glöbl und lebe in Laberweinting. Fast 16 Jahre lang war ich bei einem Maschinenbauer in der
+            Region. Angefangen habe ich in der Beschaffung. Über Logistik und Produktionsplanung ging es in die
+            Materialwirtschaft. Später habe ich Arbeitsvorbereitung, Materialwirtschaft und Versand geleitet, zuletzt war
+            ich Mitglied der Geschäftsleitung. Dort habe ich erlebt, wie eng gute Zusammenarbeit und das tägliche
+            Funktionieren eines Unternehmens zusammenhängen.
+          </p>
+          <p>Heute bin ich in mehreren Rollen unterwegs:</p>
+          <ul class="roles">
+            {roles.map((r) => (
+              <li>
+                <a href={r.url} rel="noopener">{r.name}</a>
+                <em>{r.role}</em>
+                <span>{r.text}</span>
+              </li>
+            ))}
+          </ul>
+          <p>
+            Mich interessiert, was Menschen und Unternehmen in ihrer konkreten Situation weiterhilft. Und ganz ehrlich:
+            Mir macht es auch Spaß, ab und zu selbst zu programmieren.
+          </p>
+        </div>
+        <Photo id="portrait" sizes="(max-width: 760px) 100vw, 40vw" />
+      </div>
+    </div>
+  </section>
+
   <!-- Draußen und im Verein -->
   <section class="section" id="draussen" aria-labelledby="draussen-titel">
     <div class="wrap">
@@ -204,19 +203,19 @@ const mentors = [
         <div class="prose">
           <h2 id="draussen-titel">Bewegung tut mir einfach gut.</h2>
           <p>
-            Berge und Sport gehören zu meinem Leben. Ich gehe bergsteigen und bin gern auf Klettersteigen unterwegs, ich
-            fahre Rennrad und Ski und spiele Tennis und Fußball. Dazu kommt mein Engagement in den örtlichen Vereinen.
+            Berge und Sport gehören zu meinem Leben. Ich gehe bergsteigen, bin gern auf Klettersteigen unterwegs, fahre
+            Rennrad und Ski und spiele Tennis und Fußball. Dazu kommt mein Engagement in den örtlichen Vereinen.
             Beim Fotografieren halte ich gern fest, was mir unterwegs begegnet.
           </p>
         </div>
         <div class="prose">
           <p class="lead">
             Ich bin ein leidenschaftlicher Netzwerker. Ich lerne gern neue Menschen kennen, tausche Ideen aus und
-            probiere Neues aus.
+            probiere gern Neues.
           </p>
           <p>
             Mich interessiert, was andere antreibt und was wir voneinander lernen können. Diese Neugier begleitet mich
-            privat genauso wie bei meiner Arbeit.
+            privat genauso wie im Beruf.
           </p>
         </div>
       </div>
@@ -302,11 +301,11 @@ const mentors = [
         <div class="prose">
           <h3>Was mir wichtig ist</h3>
           <p>
-            Mir ist wichtig, dass ich mich mit jemandem auf Augenhöhe unterhalten kann und dass das Gespräch nicht
-            oberflächlich bleibt.
+            Ich möchte mich mit anderen auf Augenhöhe unterhalten, und das Gespräch soll nicht an der Oberfläche
+            bleiben.
           </p>
           <ul class="arrows">
-            <li>Ein gutes Gespräch heißt für mich: zuhören, ausreden lassen und die eigene Meinung sagen.</li>
+            <li>Ich höre zu, lasse ausreden und sage meine Meinung.</li>
             <li>Ich bin ehrlich, sehr direkt und offen.</li>
             <li>Ich schwimme auch mal gegen den Strom und mache mein Ding, auch wenn das nicht immer allen passt.</li>
           </ul>

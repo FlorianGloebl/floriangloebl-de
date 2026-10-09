@@ -19,9 +19,9 @@ export const mailto = (subject?: string) =>
   `mailto:${site.contact.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`;
 
 export const nav = [
-  { label: 'Über mich', href: '/#ueber-mich' },
   { label: 'Coaching', href: '/#coaching' },
   { label: 'Weitere Angebote', href: '/#weitere-angebote' },
+  { label: 'Über mich', href: '/#ueber-mich' },
   { label: 'Gedanken', href: '/gedanken/' },
   { label: 'Kontakt', href: '/#kontakt' },
 ];
