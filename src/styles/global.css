@@ -1924,3 +1924,27 @@ p {
   align-self: center;
   margin-inline: auto;
 }
+
+/* Cover über die volle Spaltenbreite zentrieren (robust auch mobil) */
+.rec-cover {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-inline: 0;
+}
+.rec-cover .photo img {
+  max-height: 15rem;
+  height: 15rem;
+  max-width: min(100%, 18rem);
+  object-fit: contain;
+}
+@media (max-width: 420px) {
+  .rec-cover .photo img {
+    height: 12.5rem;
+  }
+}
+.rec-cover .photo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
