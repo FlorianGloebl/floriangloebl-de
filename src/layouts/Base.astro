@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title, description = site.description, image, noindex = false } = Astro.props;
-const fullTitle = title ? `${title} · ${site.name}` : `${site.name} – Coaching, Mentoring, Gründen und Software`;
+const fullTitle = title ? `${title} · ${site.name}` : `${site.name} – Coaching, Mentoring und Gründen`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const robots = site.indexing && !noindex ? 'index, follow' : 'noindex, nofollow';
 const path = Astro.url.pathname;

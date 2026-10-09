@@ -2,7 +2,7 @@ export const site = {
   name: 'Florian Glöbl',
   url: 'https://floriangloebl.de',
   description:
-    'Persönliches Coaching und Führungskräftecoaching, Mentoring, Unterstützung beim Gründen sowie Webdesign und Softwareentwicklung. Florian Glöbl aus Laberweinting.',
+    'Coaching für dich persönlich und für Führungskräfte, Mentoring, Unterstützung beim Gründen und der Weg von der Idee zum Prototyp. Florian Glöbl aus Laberweinting.',
   contact: {
     name: 'Florian Glöbl',
     street: 'Birkenweg 6',
