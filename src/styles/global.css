@@ -1574,3 +1574,40 @@ p {
   max-width: 32rem;
   margin: 2rem 0 2.5rem;
 }
+
+/* Einstieg: Foto als Bergsilhouette statt Bogen (Wunsch von Flo).
+   Dahinter ein versetzter, hellblauer Bergrücken für Tiefe. */
+.hero {
+  --ridge: polygon(
+    0% 26%, 9% 17%, 16% 21%, 27% 8%, 34% 13%, 41% 7%, 52% 0%, 59% 9%, 64% 6%, 73% 17%, 81% 12%, 90% 20%, 100% 14%,
+    100% 100%, 0% 100%
+  );
+}
+.hero .photo {
+  filter: drop-shadow(0 1.5rem 2rem rgb(11 44 74 / 0.28));
+}
+.hero .photo picture {
+  border-radius: 0;
+  box-shadow: none;
+  clip-path: var(--ridge);
+}
+.hero__media::before {
+  inset: -1.4rem 1.6rem 1.4rem -1.6rem;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(180deg, var(--accent-tint), color-mix(in srgb, var(--accent-tint) 30%, transparent));
+  clip-path: polygon(
+    0% 22%, 12% 11%, 21% 17%, 33% 4%, 44% 12%, 52% 9%, 63% 18%, 75% 8%, 86% 15%, 100% 10%,
+    100% 100%, 0% 100%
+  );
+  opacity: 0.75;
+}
+@media (max-width: 760px) {
+  .hero .photo picture,
+  .hero__media::before {
+    border-radius: 0;
+  }
+  .hero__media::before {
+    inset: -0.9rem 0.9rem 0.9rem -0.9rem;
+  }
+}
