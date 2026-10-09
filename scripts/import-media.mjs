@@ -5,8 +5,8 @@
 //
 // - liest media/manifest.json und validiert jeden Eintrag
 // - kopiert NUR Einträge mit status "approved" nach src/assets/photos/<id>.jpg
-//   (gedreht nach EXIF, optional zugeschnitten, max. 2400 px, ohne Metadaten –
-//   also auch ohne GPS)
+//   (gedreht nach EXIF, optional retuschiert und zugeschnitten, max. 2400 px,
+//   ohne Metadaten – also auch ohne GPS)
 // - schreibt src/data/media.json mit ausschließlich öffentlichen Feldern
 // - entfernt Webkopien, deren Eintrag nicht (mehr) freigegeben ist
 // Originale werden nur gelesen, nie verändert.
@@ -51,6 +51,11 @@ for (const [i, m] of manifest.media.entries()) {
     const ok = Array.isArray(m.crop) && m.crop.length === 4 && m.crop.every((n) => Number.isInteger(n) && n >= 0);
     if (!ok || m.crop[2] === 0 || m.crop[3] === 0) errors.push(`${where}: crop als [links, oben, breite, höhe] in Pixeln angeben`);
   }
+  if (m.retouch !== undefined) {
+    const isInts = (a, n) => Array.isArray(a) && a.length === n && a.every((v) => Number.isInteger(v) && v >= 0);
+    const ok = Array.isArray(m.retouch) && m.retouch.every((r) => isInts(r.from, 4) && isInts(r.to, 2) && r.from[2] > 0 && r.from[3] > 0);
+    if (!ok) errors.push(`${where}: retouch als Liste von { from: [x, y, breite, höhe], to: [x, y] } angeben`);
+  }
 }
 if (errors.length) {
   console.error('Manifest ungültig:\n- ' + errors.join('\n- '));
@@ -68,8 +73,20 @@ for (const m of approved) {
     continue;
   }
   const out = path.join(outDir, `${m.id}.jpg`);
-  // Erst nach EXIF drehen, dann zuschneiden – crop bezieht sich auf das aufrecht stehende Bild.
+  // Erst nach EXIF drehen, dann retuschieren, dann zuschneiden – alle Koordinaten
+  // beziehen sich auf das aufrecht stehende Original.
   let image = sharp(await sharp(src).rotate().toBuffer());
+  if (m.retouch) {
+    // Überdeckt einen Bildbereich (z. B. einen Schriftzug) mit einem Ausschnitt aus dem Bild selbst.
+    const patches = await Promise.all(
+      m.retouch.map(async ({ from: [x, y, w, h], to: [left, top] }) => ({
+        input: await image.clone().extract({ left: x, top: y, width: w, height: h }).toBuffer(),
+        left,
+        top,
+      })),
+    );
+    image = sharp(await image.composite(patches).toBuffer());
+  }
   if (m.crop) {
     const { width = 0, height = 0 } = await image.metadata();
     const [left, top, w, h] = m.crop;

@@ -4,19 +4,23 @@
 
 @import '@fontsource-variable/source-serif-4/opsz.css';
 @import '@fontsource-variable/source-serif-4/opsz-italic.css';
+@import '@fontsource-variable/fraunces/opsz.css';
+@import '@fontsource-variable/fraunces/opsz-italic.css';
 
 :root {
   --paper: #f6f3ed;
   --paper-deep: #ede7dc;
   --ink: #202720;
   --ink-soft: #4b524b;
-  --accent: #315349;
-  --accent-deep: #26413a;
-  --accent-tint: #c9d6cf;
+  /* Dunkles Blau (Wunsch von Flo), nah am Blau der Buch-Website */
+  --accent: #123f66;
+  --accent-deep: #0b2c4a;
+  --accent-tint: #c6d4e2;
   --taupe: #6f6455;
   --line: #d9d1c3;
 
   --serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
+  --display: 'Fraunces Variable', 'Source Serif 4 Variable', Georgia, serif;
   --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   --max: 1160px;
@@ -804,17 +808,17 @@ p {
   }
 }
 
-/* ---------- Buch „Höchstleistungs-Killer“ ---------- */
+/* ---------- Buch „Höchstleistungs-Killer“ (Stil der Buch-Website) ---------- */
 
 .book {
   --book-w: 10rem;
-  --cover: #1d2420;
-  --ochre: #d4a35c;
+  --cover: #0f1115;
+  --ochre: #d68a2a;
   position: relative;
   width: var(--book-w);
   aspect-ratio: 2 / 3;
-  transform: rotate(-5deg);
-  filter: drop-shadow(0 1.4rem 1.6rem rgb(32 39 32 / 0.32)) drop-shadow(0 0.25rem 0.35rem rgb(32 39 32 / 0.25));
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 1.4rem 1.6rem rgb(15 17 21 / 0.35)) drop-shadow(0 0.25rem 0.35rem rgb(15 17 21 / 0.28));
   transition: transform 0.35s ease;
 }
 /* Seitenschnitt rechts und unten */
@@ -825,19 +829,20 @@ p {
   border-radius: 2px 4px 4px 2px;
   background:
     repeating-linear-gradient(90deg, transparent 0 2px, rgb(0 0 0 / 0.05) 2px 3px),
-    repeating-linear-gradient(180deg, #f4efe5 0 1px, #ddd4c4 1px 2px);
+    repeating-linear-gradient(180deg, #f5efe2 0 1px, #ddd3bd 1px 2px);
 }
 .book__cover {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  padding: 11% 11% 10% 15%;
+  padding: 11% 10% 10% 14%;
   border-radius: 2px 4px 4px 2px;
   background:
-    linear-gradient(90deg, rgb(0 0 0 / 0.45) 0, rgb(255 255 255 / 0.1) 3%, transparent 6%, rgb(0 0 0 / 0.18) 7.5%, transparent 10%),
-    radial-gradient(120% 90% at 80% 10%, #2b3530 0, var(--cover) 70%);
-  color: #f6f3ed;
+    linear-gradient(90deg, rgb(0 0 0 / 0.5) 0, rgb(255 255 255 / 0.09) 3%, transparent 6%, rgb(0 0 0 / 0.2) 7.5%, transparent 10%),
+    radial-gradient(110% 70% at 85% 8%, rgb(214 138 42 / 0.16) 0, transparent 60%),
+    var(--cover);
+  color: #f5efe2;
   container-type: inline-size;
   overflow: hidden;
 }
@@ -846,31 +851,37 @@ p {
   hyphens: manual;
 }
 .book__authors {
-  color: #b9b0a0;
-  font-size: 7.6cqi;
-  line-height: 1.35;
-  font-variant-caps: all-small-caps;
-  letter-spacing: 0.14em;
+  color: rgb(245 239 226 / 0.75);
+  font-family: var(--sans);
+  font-size: 5.4cqi;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   padding-bottom: 7cqi;
-  border-bottom: 1px solid rgb(212 163 92 / 0.55);
+  border-bottom: 1px solid rgb(214 138 42 / 0.6);
 }
 .book__title {
   margin-top: auto !important;
-  font-size: 11.2cqi;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  font-family: var(--display);
+  font-size: 11.6cqi;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 .book__title em {
   display: block;
   color: var(--ochre);
-  font-size: 2.05em;
+  font-size: 2.15em;
+  font-weight: 400;
   line-height: 0.95;
 }
 .book__sub {
   margin-top: 6cqi !important;
-  color: #b9b0a0;
-  font-size: 5.6cqi;
-  line-height: 1.35;
+  color: rgb(245 239 226 / 0.7);
+  font-family: var(--sans);
+  font-size: 5cqi;
+  line-height: 1.4;
   font-style: italic;
 }
 
@@ -879,7 +890,7 @@ p {
 }
 .hero-book {
   position: absolute;
-  left: clamp(-5.25rem, -5.5vw, -1.5rem);
+  right: clamp(-4.5rem, -4vw, -1rem);
   bottom: -3rem;
   display: flex;
   flex-direction: column;
@@ -916,7 +927,6 @@ p {
 }
 @media (max-width: 760px) {
   .hero-book {
-    left: auto;
     right: 0.75rem;
     bottom: -2.25rem;
   }
@@ -943,8 +953,14 @@ p {
 .book-feature .book {
   --book-w: clamp(12rem, 22vw, 17rem);
 }
+.book-feature h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
 .book-feature h2 em {
-  color: var(--accent);
+  color: #b86f14;
+  font-weight: 400;
 }
 .book-meta {
   color: var(--taupe);
@@ -959,4 +975,253 @@ p {
   .book-feature .book {
     --book-w: 11rem;
   }
+}
+
+/* ---------- Vier Angebotsbereiche ---------- */
+
+.offer-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+}
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  background: var(--paper-deep);
+  border-top: 3px solid var(--line);
+  scroll-margin-top: 6rem;
+}
+.offer-card--main {
+  background: var(--accent);
+  color: var(--paper);
+  border-top-color: var(--accent);
+}
+.offer-card--main .offer-tag,
+.offer-card--main .offer-detail,
+.offer-card--main .offer-detail strong,
+.offer-card--main .subline,
+.offer-card--main .offer-num,
+.offer-card--main .arrows li::before {
+  color: var(--accent-tint);
+}
+.offer-card--main .offer-detail {
+  border-top-color: rgb(198 212 226 / 0.5);
+}
+.offer-card--main .btn--primary {
+  background: var(--paper);
+  color: var(--accent);
+  border-color: var(--paper);
+}
+.offer-card--main .btn--primary:hover {
+  background: #fff;
+  color: var(--accent-deep);
+}
+.offer-num {
+  font-family: var(--display);
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--taupe);
+  margin: 0 0 1.25rem;
+}
+.offer-card h3 {
+  margin-bottom: 0.2em;
+}
+.offer-card .subline {
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+.offer-card .actions {
+  margin-top: auto;
+  padding-top: 1.75rem;
+}
+@media (max-width: 760px) {
+  .offer-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Mentoren ---------- */
+
+.mentors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  text-align: center;
+}
+.mentors .photo {
+  width: clamp(4.5rem, 8vw, 6rem);
+  aspect-ratio: 1;
+  margin: 0 auto 0.6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--line);
+}
+.mentors span {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+@media (max-width: 420px) {
+  .mentors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Skandinavien ---------- */
+
+.north {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+}
+.north__photos {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  align-items: end;
+}
+.north__photos .photo {
+  aspect-ratio: 4 / 5;
+}
+.north__photos .photo:last-child {
+  aspect-ratio: 3 / 4;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+@media (max-width: 860px) {
+  .north {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Buchempfehlungen ---------- */
+
+.recs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: 2.5rem;
+}
+.rec {
+  display: flex;
+  flex-direction: column;
+}
+.rec-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 3 / 4;
+  max-width: 11rem;
+  padding: 1.1rem 1rem 1rem 1.3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2px 4px 4px 2px;
+  box-shadow: inset 6px 0 8px -4px rgb(0 0 0 / 0.35), 0 1rem 1.5rem -0.6rem rgb(32 39 32 / 0.35);
+  color: #fff;
+  container-type: inline-size;
+}
+.rec-cover p {
+  margin: 0;
+  hyphens: manual;
+}
+.rec-cover .rc-author {
+  font-family: var(--sans);
+  font-size: 7cqi;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.rec-cover .rc-title {
+  font-size: 13cqi;
+  line-height: 1.08;
+}
+.rec-cover .rc-title span {
+  display: block;
+}
+.rec-cover--konflikt {
+  background: linear-gradient(160deg, #2d4a5e, #1c2f3d);
+}
+.rec-cover--saugut {
+  background: #fff;
+  color: #8d2d56;
+  box-shadow: inset 6px 0 8px -4px rgb(0 0 0 / 0.15), 0 0 0 1px var(--line), 0 1rem 1.5rem -0.6rem rgb(32 39 32 / 0.3);
+}
+.rec-cover--saugut .rc-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12cqi;
+  line-height: 1.02;
+}
+.rec-cover--saugut .rc-title span:first-child {
+  color: #d93723;
+}
+.rec-cover--saugut .rc-title span:last-child {
+  color: #0097da;
+}
+.rec-cover--saugut .rc-author {
+  color: #282828;
+}
+.rec-cover--grenzen {
+  background: linear-gradient(180deg, #a9adae 0%, #7e8384 55%, #5d6061 100%);
+}
+.rec-cover--grenzen .rc-title {
+  font-style: italic;
+}
+.rec h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.15em;
+}
+.rec .by {
+  margin: 0 0 0.9rem;
+  color: var(--taupe);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.12em;
+}
+.rec p {
+  font-size: 1rem;
+}
+.rec .why {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.rec .actions {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+.rec .btn {
+  min-height: 44px;
+  font-size: 0.9rem;
+}
+@media (max-width: 900px) {
+  .recs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Mein Weg: heutige Rollen ---------- */
+
+.roles {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+.roles li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.roles strong {
+  display: block;
+  font-weight: 600;
+}
+.roles span {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
 }

@@ -122,11 +122,12 @@ Noch nicht geprüft, weil noch nicht möglich: Live-Betrieb unter der Domain, HT
 
 ## Offen – vor dem Start klären
 
-Geklärt am 09.10.2026: Anbieter ist Flo als Privatperson, E-Mail f.gloebl@gmx.de · Benno ist mit dem Eisbade-Foto einverstanden (Schriftzug „MANLY“ per `crop` entfernt) · Nutzungsrecht für das Klinikfoto liegt vor, der Beitrag ist veröffentlicht · Werte in Flos eigenen Worten.
+Geklärt am 09.10.2026: Anbieter ist Flo als Privatperson, E-Mail f.gloebl@gmx.de · Benno ist mit dem Eisbade-Foto einverstanden (Schriftzug „MANLY“ per `retouch` mit Teppichmuster überdeckt) · Nutzungsrecht für das Klinikfoto liegt vor, der Beitrag ist veröffentlicht · Werte in Flos eigenen Worten · Trolltunga- und Wasserfallfoto für Skandinavien freigegeben.
 
+- [ ] **Erscheinungstermin des Buchs:** Die Buch-Website nennt den 1.12.2026, Flos LinkedIn-Beiträge (Okt. 2026) „Frühjahr 2027“. Auf dieser Seite steht „voraussichtlich im Frühjahr 2027“ (`src/data/book.ts`). Buch-Website angleichen.
+- [ ] **Mentorenfotos:** Ausschnitte aus Flos LinkedIn-Beitrag „Wegbereiter“. Einverständnis von Josef Heitzer, Arnold Hauk und Peter Prinz einholen.
+- [ ] **Entwürfe fertigstellen:** „Warum Mentoren so wichtig im Leben sind“ braucht Flos Geschichten zu Josef, Arnold und Peter (Platzhalter im Text). „Warum ich gern draußen bin“ gegenlesen – einige Sätze sind von Claude in Flos Stil formuliert. Danach `draft: false` und `pubDate` setzen.
+- [ ] **werkskante.de** ist derzeit nicht erreichbar (GitHub Pages „Site not found“). Sobald die neue Plattform läuft, auf der Startseite verlinken.
+- [ ] Texte gegenlesen: Skandinavien-Abschnitt, Angebot 04 „Von der Idee zum Prototyp“, Buchempfehlungen.
 - [ ] Impressum und Datenschutz kurz rechtlich gegenlesen lassen.
-- [ ] Texte gegenlesen: Coaching-Texte, Absatz zu Löfflers Buch, Abschnitt „Unser neues Buch“.
-- [ ] Buchdaten aktuell halten (`src/data/book.ts`): Erscheinungsdatum, Link. Nach Erscheinen „vorbestellen“ in „bestellen“ ändern.
-- [ ] Entwürfe ergänzen: „Was mir Wegbereiter mitgegeben haben“ und „Warum ich gern draußen bin“ brauchen Flos eigene Erlebnisse.
-- [ ] Optional: Fjord-Foto (Skandinavien) und Fußball-Mannschaftsfoto – stehen im Manifest auf `pending`.
-- [ ] Vereinsrollen erst nach Bestätigung nennen.
+- [ ] Optional: Fußball-Mannschaftsfoto (steht im Manifest auf `pending`). Vereinsrollen erst nach Bestätigung nennen.

@@ -3,7 +3,7 @@
     "alt": "Florian Glöbl sitzt lachend auf einer Holzbank auf einer Bergwiese, dahinter ein weißes Haus, Nadelwald und Berggipfel.",
     "credit": "",
     "caption": "",
-    "focus": "50% 40%"
+    "focus": "50% 50%"
   },
   "portrait": {
     "alt": "Portrait von Florian Glöbl in dunklem Pullover vor einem Bücherregal.",
@@ -42,9 +42,45 @@
     "focus": "50% 35%"
   },
   "klinik-spende": {
-    "alt": "Vier Personen vor einem Gebäudeeingang, zwei von ihnen halten ein Schild mit der Aufschrift „Spende € 1000,00 an die Klinik Mallersdorf von Florian Glöbl, G&P“.",
+    "alt": "Spendenübergabe vor dem Eingang der Klinik Mallersdorf: Margit Hien, Bernhard Fürst, Florian Glöbl und Andreas Schneider (von links), Florian Glöbl und Bernhard Fürst halten ein Schild mit der Aufschrift „Spende € 1000,00 an die Klinik Mallersdorf von Florian Glöbl, G&P“.",
     "credit": "Foto: Klinik Mallersdorf / Elisabeth Landinger",
     "caption": "",
-    "focus": "50% 45%"
+    "focus": "50% 50%"
+  },
+  "fjord": {
+    "alt": "Florian Glöbl steht auf der Trolltunga, einem weit über einen Fjord ragenden Felsvorsprung in Norwegen, im Abendlicht.",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 40%"
+  },
+  "norwegen-wasserfall": {
+    "alt": "Ein Mann steht klein auf einem Felsen vor einem gewaltigen, tosenden Wasserfall im Sprühnebel.",
+    "credit": "",
+    "caption": "",
+    "focus": "55% 60%"
+  },
+  "mentor-heitzer": {
+    "alt": "Porträt von Josef Heitzer",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 40%"
+  },
+  "mentor-hauk": {
+    "alt": "Porträt von Arnold Hauk",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 40%"
+  },
+  "mentor-prinz": {
+    "alt": "Porträt von Peter Prinz",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 40%"
+  },
+  "mentor-loeffler": {
+    "alt": "Porträt von Benno Löffler",
+    "credit": "",
+    "caption": "",
+    "focus": "50% 40%"
   }
 }

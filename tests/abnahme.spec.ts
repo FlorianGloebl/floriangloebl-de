@@ -27,9 +27,11 @@ test('Coaching ist im Menü und erstes Angebot', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('navigation', { name: 'Hauptmenü' }).getByRole('link', { name: 'Coaching' })).toHaveAttribute('href', '/#coaching');
   const firstOffer = page.locator('#coaching h3').first();
-  await expect(firstOffer).toHaveText('Persönliches Coaching und Führungskräftecoaching');
+  await expect(firstOffer).toHaveText('Coaching');
+  await expect(page.locator('#coaching .offer-card')).toHaveCount(4);
+  await expect(page.locator('#weitere-angebote')).toBeAttached();
   const order = await page.locator('main > section[id], main > div.statement').evaluateAll((els) => els.map((e) => e.id || 'statement'));
-  expect(order.slice(0, 4)).toEqual(['ueber-mich', 'coaching', 'weitere-angebote', 'draussen']);
+  expect(order.slice(0, 3)).toEqual(['ueber-mich', 'coaching', 'draussen']);
 });
 
 test('Kontakt-Links und Coaching-Button', async ({ page }) => {
@@ -82,7 +84,8 @@ test('Bilder: Alttexte, feste Maße, nur erstes Bild priorisiert, Bildcredit sic
   const imgs = page.locator('main img');
   const n = await imgs.count();
   expect(n).toBeGreaterThan(0);
-  expect(n).toBeLessThanOrEqual(8);
+  // 9 große Bilder + 4 kleine Mentorenporträts + Beitragsbild (auf Flos Wunsch mehr als die ursprünglich geplanten 6–8)
+  expect(n).toBeLessThanOrEqual(14);
   for (let i = 0; i < n; i++) {
     const img = imgs.nth(i);
     expect((await img.getAttribute('alt'))?.length).toBeGreaterThan(10);
@@ -133,6 +136,6 @@ test('Buch: Hero verweist auf Buchabschnitt, Abschnitt verlinkt Buch-Website', a
     await page.screenshot({ path: `test-results/screens/hero-${width}.png` });
     await heroBook.click();
     await expect(page).toHaveURL(/#buch$/);
-    await expect(page.locator('#buch').getByRole('link', { name: 'Zum Buch und vorbestellen' })).toHaveAttribute('href', 'https://hoechstleistungskiller.v-und-s.de/');
+    await expect(page.locator('#buch').getByRole('link', { name: 'Ins Buch reinlesen' })).toHaveAttribute('href', 'https://hoechstleistungskiller.v-und-s.de/');
   }
 });

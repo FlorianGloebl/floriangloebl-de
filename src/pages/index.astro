@@ -3,12 +3,18 @@ import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import PostCard from '../components/PostCard.astro';
 import Book from '../components/Book.astro';
-import { site, mailto, formatDate } from '../data/site';
-import { book } from '../data/book';
+import { site, mailto } from '../data/site';
+import { book, recommendations } from '../data/book';
 import { getPosts } from '../data/posts';
 
 const latest = (await getPosts()).slice(0, 2);
 const c = site.contact;
+const mentors = [
+  { id: 'mentor-heitzer', name: 'Josef Heitzer' },
+  { id: 'mentor-hauk', name: 'Arnold Hauk' },
+  { id: 'mentor-prinz', name: 'Peter Prinz' },
+  { id: 'mentor-loeffler', name: 'Benno Löffler' },
+];
 ---
 
 <Base>
@@ -16,12 +22,12 @@ const c = site.contact;
   <section class="hero" aria-labelledby="hallo">
     <div class="wrap">
       <div>
-        <p class="kicker">Coaching · Mentoring · Gründen · Software</p>
+        <p class="kicker">Coaching · Mentoring · Gründen</p>
         <h1 id="hallo">Hallo, ich bin Flo.</h1>
         <p class="lead">
-          Ich unterstütze Menschen im persönlichen Coaching und begleite Führungskräfte bei ihren Fragen und
-          Entscheidungen. Außerdem helfe ich beim Gründen und entwickle Websites und Software. In meiner freien Zeit
-          zieht es mich in die Berge, aufs Rennrad und auf den Sportplatz.
+          Ich begleite Menschen im Coaching und unterstütze Führungskräfte bei ihren Fragen und Entscheidungen. Als
+          Mentor teile ich meine Erfahrung, und wer gründen will, dem helfe ich beim Start. In meiner freien Zeit bin ich
+          am liebsten in Bewegung: beim Bergsteigen, auf dem Rennrad, beim Skifahren und auf dem Tennisplatz.
         </p>
         <div class="actions">
           <a class="btn btn--primary" href="#coaching">Coaching kennenlernen</a>
@@ -29,10 +35,10 @@ const c = site.contact;
         </div>
       </div>
       <div class="hero__media">
-        <Photo id="hero-berge" sizes="(max-width: 760px) 100vw, 46vw" priority />
+        <Photo id="hero-berge" sizes="(max-width: 760px) 100vw, 46vw" widths={[480, 700]} priority />
         <a class="hero-book" href="#buch">
           <Book />
-          <span class="hero-book__label">Neues Buch · Dezember 2026</span>
+          <span class="hero-book__label">Neues Buch · {book.releaseShort}</span>
         </a>
       </div>
     </div>
@@ -46,15 +52,34 @@ const c = site.contact;
         <div class="prose">
           <h2 id="mein-weg">Mein Weg</h2>
           <p>
-            Ich bin Florian Glöbl und lebe in Laberweinting. Mein beruflicher Weg führte mich durch viele Jahre in der
-            Sturm-Gruppe. Dort habe ich erlebt, wie eng gute Zusammenarbeit und das tägliche Funktionieren eines
-            Unternehmens zusammenhängen. Heute bin ich Geschäftsführer, Berater und Sparringspartner bei Glöbl &amp;
-            Partner. Mich interessiert, was Menschen und Unternehmen in ihrer konkreten Situation weiterhilft.
+            Ich bin Florian Glöbl und lebe in Laberweinting. Fast 16 Jahre lang war ich bei einem Maschinenbauer in der
+            Region: angefangen in der Beschaffung, dann in Logistik, Produktionsplanung und Materialwirtschaft, später
+            als Leiter von Arbeitsvorbereitung, Materialwirtschaft und Versand und zuletzt in der Geschäftsführung. Dort
+            habe ich erlebt, wie eng gute Zusammenarbeit und das tägliche Funktionieren eines Unternehmens
+            zusammenhängen.
           </p>
+          <p>Heute bin ich in mehreren Rollen unterwegs:</p>
+          <ul class="roles">
+            <li>
+              <strong><a href="https://www.g-u-p.de/" rel="noopener">Glöbl &amp; Partner</a></strong>
+              <span>Geschäftsführer. Wir begleiten mittelständische Unternehmen bei Organisation, Führung, Prozessen und ERP.</span>
+            </li>
+            <li>
+              <strong><a href="https://coolab.ch/" rel="noopener">Coolab AG</a></strong>
+              <span>Mitgründer und Verwaltungsrat. Pragmatische Transformation für kleine und mittlere Unternehmen in der Schweiz.</span>
+            </li>
+            <li>
+              <strong>Werkskante</strong>
+              <span>Meine Einzelfirma. Hier bin ich eher der Möglichmacher: Werkskante wird gerade zu einer Plattform, auf der sich andere selbstständig machen können – und ich unterstütze sie dabei.</span>
+            </li>
+            <li>
+              <strong><a href="https://v-und-s.de/" rel="noopener">Vollmer &amp; Scheffczyk</a></strong>
+              <span>Partner. Wertschöpfung und Zusammenarbeit im Mittelstand.</span>
+            </li>
+          </ul>
           <p>
-            Auch technisch setze ich gern selbst etwas um. Websites gestalten, Software entwickeln und eine Idee zum
-            ersten funktionierenden Ergebnis bringen: Das macht mir Spaß. Diese Lust am Ausprobieren gehört genauso zu
-            mir wie meine Arbeit als Berater.
+            Mich interessiert, was Menschen und Unternehmen in ihrer konkreten Situation weiterhilft. Und ganz ehrlich:
+            Mir macht es auch Spaß, ab und zu selbst zu programmieren.
           </p>
         </div>
         <Photo id="portrait" sizes="(max-width: 760px) 100vw, 40vw" />
@@ -62,7 +87,7 @@ const c = site.contact;
     </div>
   </section>
 
-  <!-- Coaching und Mentoring -->
+  <!-- Angebote: vier Bereiche, Coaching zuerst -->
   <section class="section" id="coaching" aria-labelledby="angebote">
     <div class="wrap">
       <p class="kicker">Angebote</p>
@@ -71,10 +96,11 @@ const c = site.contact;
         <p class="subline">Umfang und Honorar vereinbaren wir passend zu deinem Anliegen.</p>
       </div>
 
-      <div class="offer-main">
-        <div>
-          <p class="offer-tag">Mein Schwerpunkt</p>
-          <h3>Persönliches Coaching und Führungskräftecoaching</h3>
+      <div class="offer-cards">
+        <article class="offer-card offer-card--main">
+          <p class="offer-num" aria-hidden="true">01</p>
+          <h3>Coaching</h3>
+          <p class="subline">Für dich persönlich und für Führungskräfte</p>
           <p>
             Wenn eine Entscheidung ansteht, die eigene Rolle unklar wird oder Führung gerade mehr Fragen als Antworten
             bringt, kann ein Gespräch von außen helfen. Ich unterstütze dich dabei, deine Situation zu sortieren und
@@ -92,59 +118,61 @@ const c = site.contact;
           <div class="actions">
             <a class="btn btn--primary" href={mailto('Anfrage Coaching')}>Coaching anfragen</a>
           </div>
-        </div>
-        <div>
-          <p class="offer-tag">Über längere Zeit</p>
+        </article>
+
+        <article class="offer-card">
+          <p class="offer-num" aria-hidden="true">02</p>
           <h3>Mentoring</h3>
+          <p class="subline">Begleitung über einen längeren Zeitraum</p>
           <p>
             Manche Fragen lassen sich nicht in einem Termin beantworten. Im Mentoring begleite ich dich über einen
-            längeren Zeitraum, teile eigene Erfahrungen und denke mit dir weiter. Du bringst deine konkreten Fragen
-            mit; wir prüfen gemeinsam, was du als Nächstes ausprobieren möchtest.
+            längeren Zeitraum, teile eigene Erfahrungen und denke mit dir weiter. Du bringst deine konkreten Fragen mit;
+            wir prüfen gemeinsam, was du als Nächstes ausprobieren möchtest.
           </p>
           <div class="offer-detail">
             <strong>Arbeitsweise</strong>
-            Erfahrung und fachliche Rückmeldung sind ausdrücklich Teil der Begleitung. Rhythmus und Dauer werden
-            individuell vereinbart.
+            Erfahrung und fachliche Rückmeldung sind ausdrücklich Teil der Begleitung. Rhythmus und Dauer vereinbaren wir
+            individuell.
           </div>
           <div class="actions">
             <a class="btn btn--ghost" href={mailto('Anfrage Mentoring')}>Mentoring anfragen</a>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <!-- Weitere Angebote -->
-  <section class="section" id="weitere-angebote" aria-labelledby="weitere">
-    <div class="wrap">
-      <h2 id="weitere" class="visually-hidden">Weitere Angebote</h2>
-      <div class="offer-grid">
-        <article>
-          <p class="offer-tag">Weiteres Angebot</p>
-          <h3>Unterstützung beim Gründen</h3>
+        <article class="offer-card" id="weitere-angebote">
+          <p class="offer-num" aria-hidden="true">03</p>
+          <h3>Gründen</h3>
+          <p class="subline">Eine Idee auf eigene Beine stellen</p>
           <p>
             Du möchtest ein Unternehmen gründen oder eine Idee auf eigene Beine stellen? Ich helfe dir, dein Angebot zu
-            schärfen, mögliche Kunden besser zu verstehen und die ersten Schritte zu ordnen. Dazu kann auch gehören,
-            eine einfache Website oder einen ersten Prototyp zu entwickeln.
+            schärfen, mögliche Kunden besser zu verstehen und die ersten Schritte zu ordnen.
           </p>
           <div class="offer-detail">
-            <strong>Ergebnisse</strong>
-            Klares Angebot und erste Kundengespräche. Steuerliche und rechtliche Fragen gehören zu den entsprechenden
-            Fachleuten.
+            <strong>Ergebnis</strong>
+            Ein klares Angebot und erste Kundengespräche. Steuerliche und rechtliche Fragen gehören zu den
+            entsprechenden Fachleuten.
+          </div>
+          <div class="actions">
+            <a class="btn btn--ghost" href={mailto('Anfrage Gründung')}>Gründung besprechen</a>
           </div>
         </article>
-        <article>
-          <p class="offer-tag">Weiteres Angebot</p>
-          <h3>Webdesign und Softwareentwicklung</h3>
+
+        <article class="offer-card">
+          <p class="offer-num" aria-hidden="true">04</p>
+          <h3>Von der Idee zum Prototyp</h3>
+          <p class="subline">Schnell zum ersten greifbaren Ergebnis</p>
           <p>
-            Ich gestalte Websites und entwickle kleine Softwarelösungen für konkrete Aufgaben. Gemeinsam schauen wir,
-            was gebraucht wird, bauen eine erste nutzbare Version und verbessern sie anhand der Rückmeldungen. Mir
-            gefällt, wenn aus einer Idee etwas wird, mit dem Menschen tatsächlich arbeiten können.
+            Eine Idee oder ein Prozess soll nicht ewig auf dem Papier bleiben. Gemeinsam bringen wir sie zum ersten
+            Ergebnis oder Prototyp, mit dem man arbeiten und lernen kann. Das kann ein neu gedachter Ablauf sein, eine
+            einfache Website oder ein kleines digitales Werkzeug.
           </p>
           <div class="offer-detail">
-            <strong>Projektumfang</strong>
-            Kompakte Websites, interne Werkzeuge und Prototypen. Betrieb, Wartung und Erweiterungen werden je Projekt
-            vereinbart.
+            <strong>Vorgehen</strong>
+            Klein anfangen, ausprobieren, anhand der Rückmeldungen verbessern. Wie es danach weitergeht, entscheiden wir
+            gemeinsam.
+          </div>
+          <div class="actions">
+            <a class="btn btn--ghost" href={mailto('Anfrage Prototyp')}>Idee besprechen</a>
           </div>
         </article>
       </div>
@@ -157,11 +185,11 @@ const c = site.contact;
       <p class="kicker">Draußen und mittendrin</p>
       <div class="columns">
         <div class="prose">
-          <h2 id="draussen-titel">Berge, Rennrad und der Sportplatz</h2>
+          <h2 id="draussen-titel">Bewegung tut mir einfach gut</h2>
           <p>
-            Berge und Sport gehören zu meinem Leben. Ich fahre Rennrad und Ski, gehe bergsteigen und bin gern auf
-            Klettersteigen unterwegs. Dazu kommen Fußball, Tennis und mein Engagement in den örtlichen Vereinen. Beim
-            Fotografieren halte ich gern fest, was mir unterwegs begegnet.
+            Berge und Sport gehören zu meinem Leben. Ich gehe bergsteigen und bin gern auf Klettersteigen unterwegs, ich
+            fahre Rennrad und Ski und spiele Tennis und Fußball. Dazu kommt mein Engagement in den örtlichen Vereinen.
+            Beim Fotografieren halte ich gern fest, was mir unterwegs begegnet.
           </p>
         </div>
         <div class="prose">
@@ -183,20 +211,35 @@ const c = site.contact;
         <Photo id="draussen-rennrad" sizes="(max-width: 760px) 50vw, 280px" widths={[360, 560, 720]} />
       </div>
 
-      <div class="aside-box prose">
-        <h3>Was mich an Skandinavien begeistert</h3>
-        <p>
-          Ich mag die skandinavischen Länder sehr: die raue Natur und vor allem die Offenheit für Fortschritt, die ich
-          mit ihnen verbinde. Digitalisierung, Elektromobilität und erneuerbare Energien wie Wind und Sonne
-          interessieren mich. Diese Verbindung von Natur und neuen Ideen spricht mich an.
-        </p>
+      <div class="north" id="skandinavien">
+        <div class="prose">
+          <h3>Was mich an Skandinavien begeistert</h3>
+          <p>
+            Ich mag die skandinavischen Länder sehr. Da ist zum einen die raue Natur: Fjorde, Felsen, Wasserfälle und
+            eine Weite, in der man sich selbst ziemlich klein vorkommt. Auf der Trolltunga in Norwegen zu stehen, weit
+            über dem Fjord, gehört zu den Momenten, die ich nicht vergesse.
+          </p>
+          <p>
+            Zum anderen begeistert mich die Offenheit für Fortschritt, die ich mit diesen Ländern verbinde.
+            Digitalisierung, Elektromobilität und erneuerbare Energien wie Wind und Sonne interessieren mich, und dort
+            habe ich das Gefühl, dass vieles davon selbstverständlicher zum Alltag gehört.
+          </p>
+          <p>
+            Genau diese Verbindung spricht mich an: wilde Natur und der Mut, neue Wege auszuprobieren. Beides nehme ich
+            gern mit nach Hause.
+          </p>
+        </div>
+        <div class="north__photos">
+          <Photo id="fjord" sizes="(max-width: 860px) 58vw, 330px" widths={[480, 720, 1000]} />
+          <Photo id="norwegen-wasserfall" sizes="(max-width: 860px) 42vw, 240px" widths={[360, 560]} />
+        </div>
       </div>
     </div>
   </section>
 
   <div class="statement">
     <div class="wrap">
-      <p>Ein echter Dialog heißt: zuhören – und die eigene Meinung sagen.</p>
+      <p>Ein gutes Gespräch heißt für mich: zuhören, ausreden lassen – und die eigene Meinung sagen.</p>
     </div>
   </div>
 
@@ -208,11 +251,18 @@ const c = site.contact;
         <div class="prose">
           <h2 id="menschen">Menschen auf meinem Weg</h2>
           <p>
-            Ich habe viel von Menschen gelernt, die mir etwas zugetraut und mich zugleich hinterfragt haben. Josef
-            Heitzer, Arnold Hauk, Peter Prinz und Benno Löffler gehören für mich dazu. Sie haben mir Erfahrung
-            weitergegeben, Perspektiven eröffnet und Raum zur Entwicklung gelassen. Dieses Vertrauen prägt, wie ich
-            heute andere begleite.
+            Niemand kommt allein so weit. Ich habe viel von Menschen gelernt, die mir etwas zugetraut und mich zugleich
+            hinterfragt haben. Sie haben mir Erfahrung weitergegeben, Perspektiven eröffnet und Raum zur Entwicklung
+            gelassen. Dieses Vertrauen prägt, wie ich heute andere begleite.
           </p>
+          <ul class="mentors">
+            {mentors.map((m) => (
+              <li>
+                <Photo id={m.id} sizes="96px" widths={[96, 192, 250]} />
+                <span>{m.name}</span>
+              </li>
+            ))}
+          </ul>
         </div>
         <div class="prose">
           <h3>Was mir wichtig ist</h3>
@@ -221,7 +271,7 @@ const c = site.contact;
             oberflächlich bleibt.
           </p>
           <ul class="arrows">
-            <li>Ich bin Fan eines echten Dialogs. Das heißt für mich: zuhören und meine Meinung sagen.</li>
+            <li>Ein gutes Gespräch heißt für mich: zuhören, ausreden lassen und die eigene Meinung sagen.</li>
             <li>Ich bin ehrlich, sehr direkt und offen.</li>
             <li>Ich schwimme auch mal gegen den Strom und mache mein Ding, auch wenn das nicht immer allen passt.</li>
           </ul>
@@ -229,7 +279,7 @@ const c = site.contact;
       </div>
 
       <div class="benno split split--flip">
-        <Photo id="benno-eisbaden" sizes="(max-width: 760px) 100vw, 520px" widths={[480, 768]} caption />
+        <Photo id="benno-eisbaden" sizes="(max-width: 760px) 100vw, 520px" widths={[480, 720]} caption />
         <div class="prose">
           <h3>Benno und ich</h3>
           <p>
@@ -239,15 +289,14 @@ const c = site.contact;
             Ideen kommen.
           </p>
           <p>
-            Zusammengeschweißt hat uns ausgerechnet die Kälte. Im Januar 2025 waren wir beim Lagerfeuer von Vollmer
+            Aus der Zusammenarbeit ist nicht nur eine berufliche Verbindung geworden, sondern eine echte Freundschaft.
+            Zusammengeschweißt hat uns unter anderem die Kälte: Im Januar 2025 waren wir beim Lagerfeuer von Vollmer
             &amp; Scheffczyk. Bei Minusgraden ging es für uns gemeinsam in den See zum Eisbaden. „Zusammengefroren“ wäre
             für diesen Moment vielleicht das passendere Wort gewesen. :-)
           </p>
           <p>
-            Das Foto von uns kurz vor dem Eisbaden gehört deshalb für mich hierher. Es erinnert mich an ein gemeinsames
-            Erlebnis, das uns verbunden hat, und zeigt eine persönliche Seite unserer Zusammenarbeit. Neben den
-            Diskussionen und all den Ideen ist eben auch Platz für solche Geschichten. Und für ein bisschen Humor
-            sowieso.
+            Das Foto von uns kurz vor dem Eisbaden gehört deshalb für mich hierher. Neben den Diskussionen und all den
+            Ideen ist eben auch Platz für solche Geschichten. Und für ein bisschen Humor sowieso.
           </p>
         </div>
       </div>
@@ -271,46 +320,40 @@ const c = site.contact;
         <ul class="arrows">
           {book.parts.map((part) => <li>{part}</li>)}
         </ul>
-        <p class="book-meta">{book.authors} · Erscheint am {formatDate(book.release)}</p>
+        <p class="book-meta">{book.authors} · Erscheint {book.release}</p>
         <div class="actions">
-          <a class="btn btn--primary" href={book.url} rel="noopener">Zum Buch und vorbestellen</a>
+          <a class="btn btn--primary" href={book.url} rel="noopener">Ins Buch reinlesen</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Was mich zum Nachdenken bringt -->
+  <!-- Buchempfehlungen -->
   <section class="section" id="nachdenken" aria-labelledby="nachdenken-titel">
     <div class="wrap">
       <p class="kicker">Was mich zum Nachdenken bringt</p>
-      <h2 id="nachdenken-titel" class="visually-hidden">Was mich zum Nachdenken bringt</h2>
-      <div class="books">
-        <article>
-          <h3>Coach sein</h3>
-          <p class="by">Klaus Eidenschink</p>
-          <p>
-            Klaus Eidenschinks Gedanken geben mir immer wieder Anlass, die eigene Arbeit zu hinterfragen. Seine Reihe
-            „Coach sein“ war ein Anstoß für meine eigenen Überlegungen zum Beratersein.
-          </p>
-        </article>
-        <article>
-          <h3>Wenn Grenzen keine sind</h3>
-          <p class="by">Fredmund Malik</p>
-          <p>
-            Fredmund Maliks Buch „Wenn Grenzen keine sind – Management und Bergsteigen“ verbindet zwei Themen, die mir
-            nah sind: die Berge und die Frage, wie Menschen Verantwortung übernehmen. Das Buch dient auch als
-            gestalterische Inspiration für diese Website.
-          </p>
-        </article>
-        <article>
-          <h3>Saugute Zusammenarbeit</h3>
-          <p class="by">Benno Löffler</p>
-          <p>
-            Benno Löfflers Buch „Saugute Zusammenarbeit“ beschreibt sich selbst als brutal ehrliche Sammlung von
-            Denkansätzen für Führungskräfte. Es lädt dazu ein, ein wenig anders über Bekanntes nachzudenken – genau das
-            mag ich an unseren Gesprächen. Auch seine klare, kräftige Gestaltung hat diese Website mitgeprägt.
-          </p>
-        </article>
+      <h2 id="nachdenken-titel">Drei Bücher, die ich empfehle</h2>
+      <div class="recs">
+        {recommendations.map((r) => {
+          return (
+            <article class="rec">
+              <div class:list={['rec-cover', `rec-cover--${r.tone}`]} aria-hidden="true">
+                <p class="rc-author">{r.author}</p>
+                <p class="rc-title">
+                  {r.cover.map((line) => <span>{line}</span>)}
+                </p>
+              </div>
+              <h3>{r.title}</h3>
+              <p class="by">{r.author} · {r.meta}</p>
+              <p>{r.about}</p>
+              <p class="why">{r.why}</p>
+              <div class="actions">
+                <a class="btn btn--primary" href={r.buy} rel="noopener">{r.buyLabel}</a>
+                <a class="btn btn--ghost" href={r.site} rel="noopener">{r.siteLabel}</a>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>
