@@ -40,7 +40,7 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git clone --depth 1 git@github.com:FlorianGloebl/floriangloebl-de-web.git web
-          find web -mindepth 1 -maxdepth 1 ! -name .git ! -name README.md -exec rm -rf {} +
+          find web -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name README.md -exec rm -rf {} +
           cp -r dist/. web/
           touch web/.nojekyll
           cd web

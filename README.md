@@ -83,6 +83,7 @@ Die Website läuft über GitHub Pages unter **https://floriangloebl.de**.
 
 - Dieses Repo (**FlorianGloebl/floriangloebl-de**) ist **privat** und enthält Quellcode, Entwürfe und interne Mediennotizen.
 - Bei jedem Push auf `main` baut der Workflow `.github/workflows/publish.yml` die Seite. Er kopiert **nur das fertige Ergebnis** (`dist/`) ins **öffentliche** Repo **FlorianGloebl/floriangloebl-de-web**, das GitHub Pages ausliefert.
+- Im öffentlichen Repo liefert dessen Workflow `.github/workflows/pages.yml` den Inhalt per GitHub Actions über Pages aus (Build-Typ „GitHub Actions“; der ältere Branch-Build war unzuverlässig). Der Veröffentlichungs-Workflow lässt `.github/` dort unangetastet.
 - Zugriff: Deploy-Key (Schreibrecht nur auf das öffentliche Repo), hinterlegt als Secret `WEB_DEPLOY_KEY`.
 - Manuell auslösen: Actions → „Website veröffentlichen“ → Run workflow.
 
@@ -96,10 +97,9 @@ Die Website läuft über GitHub Pages unter **https://floriangloebl.de**.
 | A | @ | 185.199.109.153 |
 | A | @ | 185.199.110.153 |
 | A | @ | 185.199.111.153 |
-| AAAA | @ | 2606:50c0:8000::153 (und …8001, …8002, …8003::153) |
 | CNAME | www | floriangloebl.github.io |
 
-Den bisherigen A-Eintrag `89.31.143.90` (Parkseite von united-domains) entfernen. GitHub leitet `www.floriangloebl.de` dann automatisch auf `https://floriangloebl.de` um. Sobald das Zertifikat ausgestellt ist: im öffentlichen Repo unter Settings → Pages „Enforce HTTPS“ anhaken.
+Die früheren A-Einträge `89.31.143.90` (Parkseite, auch der Wildcard-Eintrag `*`) sind entfernt; TTL 600. GitHub leitet `www.floriangloebl.de` dann automatisch auf `https://floriangloebl.de` um. Sobald das Zertifikat ausgestellt ist: im öffentlichen Repo unter Settings → Pages „Enforce HTTPS“ anhaken.
 
 ## Datensicherung
 
