@@ -1,0 +1,55 @@
+name: Website veröffentlichen
+
+# Baut die Seite und veröffentlicht nur das fertige Ergebnis (dist/) im
+# öffentlichen Repo FlorianGloebl/floriangloebl-de-web, das über GitHub Pages
+# unter https://floriangloebl.de ausgeliefert wird. Quellcode, Entwürfe und
+# interne Notizen bleiben in diesem privaten Repo.
+#
+# Suchmaschinen-Indexierung: Repo-Variable PUBLIC_INDEXING (Settings → Secrets
+# and variables → Actions → Variables) auf "true" setzen. Ohne Variable bleibt
+# die Seite auf noindex.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: publish
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          PUBLIC_INDEXING: ${{ vars.PUBLIC_INDEXING || 'false' }}
+      - name: Ins öffentliche Repo veröffentlichen
+        env:
+          DEPLOY_KEY: ${{ secrets.WEB_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git clone --depth 1 git@github.com:FlorianGloebl/floriangloebl-de-web.git web
+          find web -mindepth 1 -maxdepth 1 ! -name .git ! -name README.md -exec rm -rf {} +
+          cp -r dist/. web/
+          touch web/.nojekyll
+          cd web
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen an der Website."
+          else
+            git commit -m "Website-Build ${GITHUB_SHA::7}"
+            git push origin main
+          fi
