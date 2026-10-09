@@ -1611,3 +1611,22 @@ p {
     inset: -0.9rem 0.9rem 0.9rem -0.9rem;
   }
 }
+
+/* Einstieg: ganzes Foto zeigen; der Zacken-Rand folgt dem echten Bergkamm im Foto
+   (aus dem Bild gemessen). Der hellblaue Rücken dahinter wiederholt die Linie versetzt. */
+.hero {
+  --ridge: polygon(0% 5.0%, 2% 4.7%, 4% 5.3%, 6% 5.9%, 8% 6.4%, 10% 7.0%, 12% 7.9%, 14% 7.9%, 16% 8.5%, 18% 9.1%, 20% 9.9%, 22% 10.4%, 24% 10.4%, 26% 11.1%, 28% 10.2%, 30% 8.6%, 32% 8.6%, 34% 9.4%, 36% 10.4%, 38% 10.9%, 40% 12.3%, 42% 12.0%, 44% 11.8%, 46% 13.6%, 48% 14.2%, 50% 13.9%, 52% 13.9%, 54% 13.0%, 56% 14.2%, 58% 14.5%, 60% 15.0%, 62% 15.6%, 64% 16.1%, 66% 14.2%, 68% 15.3%, 70% 13.0%, 72% 13.5%, 74% 11.4%, 76% 12.8%, 78% 12.8%, 80% 11.6%, 82% 9.0%, 84% 10.6%, 86% 10.3%, 88% 7.2%, 90% 8.1%, 92% 6.6%, 94% 6.2%, 96% 7.3%, 98% 8.9%, 100% 8.5%, 100% 100%, 0% 100%);
+}
+.hero .photo,
+.hero .photo picture {
+  aspect-ratio: 1206 / 1688;
+}
+.hero__media::before {
+  clip-path: var(--ridge);
+  inset: -1.6rem 1.4rem 1.6rem -1.4rem;
+}
+@media (max-width: 760px) {
+  .hero .photo {
+    aspect-ratio: 1206 / 1688;
+  }
+}
