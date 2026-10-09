@@ -79,20 +79,27 @@ Nur `status: "approved"` wird übernommen. Das Skript dreht Bilder richtig, verk
 
 ## Veröffentlichen (GitHub Pages)
 
-Der Workflow `.github/workflows/deploy-pages.yml` läuft **nur manuell** (Actions → „Deploy to GitHub Pages“ → Run workflow). Bis zum offiziellen Start bleibt die Indexierung gesperrt (`noindex` + `robots.txt: Disallow`). Zum Start im Workflow „indexing“ anhaken.
+Die Website läuft über GitHub Pages unter **https://floriangloebl.de**.
 
-Einmalig vor dem ersten Deploy:
+- Dieses Repo (**FlorianGloebl/floriangloebl-de**) ist **privat** und enthält Quellcode, Entwürfe und interne Mediennotizen.
+- Bei jedem Push auf `main` baut der Workflow `.github/workflows/publish.yml` die Seite. Er kopiert **nur das fertige Ergebnis** (`dist/`) ins **öffentliche** Repo **FlorianGloebl/floriangloebl-de-web**, das GitHub Pages ausliefert.
+- Zugriff: Deploy-Key (Schreibrecht nur auf das öffentliche Repo), hinterlegt als Secret `WEB_DEPLOY_KEY`.
+- Manuell auslösen: Actions → „Website veröffentlichen“ → Run workflow.
 
-1. **GitHub Pages:** Repository → Settings → Pages → Source „GitHub Actions“. Für private Repositories braucht Pages einen kostenpflichtigen GitHub-Plan (Pro/Team). Alternativ: Repository öffentlich machen, dann aber vorher Entwürfe aus dem Repo nehmen.
-2. **Domain:** In Settings → Pages „Custom domain“ `floriangloebl.de` eintragen, danach „Enforce HTTPS“.
-3. **DNS bei united-domains** (erst zum Start ändern):
-   - `A` für `floriangloebl.de`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `AAAA`: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - `CNAME` für `www`: `floriangloebl.github.io`
+**Suchmaschinen:** Solange die Repo-Variable `PUBLIC_INDEXING` nicht auf `true` steht, liefert die Seite `noindex` und `robots.txt: Disallow`. Zum offiziellen Start: Settings → Secrets and variables → Actions → Variables → `PUBLIC_INDEXING` = `true`, dann den Workflow einmal laufen lassen.
 
-   GitHub leitet `www.floriangloebl.de` dann automatisch auf `https://floriangloebl.de` um.
+**DNS bei united-domains** (die Mail-Einträge `MX` bleiben unverändert):
 
-Ein Webhosting-Tarif ist für diese Lösung nicht nötig. Alternativ lässt sich `dist/` auf jeden beliebigen Webspace hochladen (dann www-Weiterleitung beim Hoster einrichten).
+| Typ | Name | Wert |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| AAAA | @ | 2606:50c0:8000::153 (und …8001, …8002, …8003::153) |
+| CNAME | www | floriangloebl.github.io |
+
+Den bisherigen A-Eintrag `89.31.143.90` (Parkseite von united-domains) entfernen. GitHub leitet `www.floriangloebl.de` dann automatisch auf `https://floriangloebl.de` um. Sobald das Zertifikat ausgestellt ist: im öffentlichen Repo unter Settings → Pages „Enforce HTTPS“ anhaken.
 
 ## Datensicherung
 
