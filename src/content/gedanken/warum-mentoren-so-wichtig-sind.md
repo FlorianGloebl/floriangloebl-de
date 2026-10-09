@@ -42,7 +42,7 @@ Josef hat mich bei allem unterstützt, was ich vorhatte und verändern wollte. W
 
 ### Arnold Hauk
 
-Arnold und ich haben uns von Anfang an sehr gut verstanden und vertraut. In seiner Zeit im Unternehmen konnte ich viel von ihm lernen, wovon ich heute noch profitiere. Aus diesem Vertrauensverhältnis heraus ist er für mich zu einem echten Mentor geworden.
+Arnold und ich haben uns von Anfang an sehr gut verstanden und vertraut. In seiner Zeit im Unternehmen konnte ich viel von ihm lernen, vor allem rund um die Supply Chain. Davon profitiere ich bis heute. Aus diesem Vertrauensverhältnis heraus ist er für mich zu einem echten Mentor geworden.
 
 Und das ist bis heute so: Wenn ich ihn anrufe oder wir uns zum Austausch treffen, ist er sich für keinen persönlichen Rat zu schade.
 
