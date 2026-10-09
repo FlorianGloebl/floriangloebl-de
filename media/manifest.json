@@ -205,10 +205,10 @@
       "caption": "",
       "focus": "50% 50%",
       "crop": [
-        50,
-        40,
-        520,
-        520
+        60,
+        30,
+        540,
+        540
       ],
       "note": "Autorenfoto aus dem Buchprojekt, Hintergrund per rembg entfernt (weiß wie bei den anderen), Kopf mittig. Einverständnis liegt laut Flo vor (09.10.2026)."
     },
@@ -219,7 +219,7 @@
       "alt": "Florian Glöbl und Joey Kelly stehen nebeneinander vor einem Banner der neumeier AG beim SAP-Usertreffen, Joey Kelly mit schwarzer Kappe zeigt den Daumen.",
       "credit": "",
       "caption": "",
-      "focus": "50% 35%",
+      "focus": "50% 10%",
       "note": "SAP-Usertreffen der neumeier AG, Jahnstadion Regensburg, laut Dateiname 01.10.2026. Auch in Flos LinkedIn-Beitrag."
     },
     {

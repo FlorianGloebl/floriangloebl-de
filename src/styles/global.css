@@ -1918,3 +1918,9 @@ p {
 .statement .dialog__kicker::before {
   content: none;
 }
+
+/* Buchcover mittig in ihrer Spalte */
+.rec-cover {
+  align-self: center;
+  margin-inline: auto;
+}
