@@ -1,6 +1,6 @@
 ---
 title: Mit Joey Kelly über die Alpen
-description: Beim SAP-Usertreffen der neumeier AG habe ich Joey Kelly erlebt – und mit ihm ausgemacht, nächstes Jahr bei seiner Alpenüberquerungs-Challenge von München nach Verona mitzumachen.
+description: Beim SAP-Usertreffen der neumeier AG habe ich Joey Kelly erlebt – und mit ihm ausgemacht, am 8. August 2027 bei seiner Alpenüberquerungs-Challenge von München nach Verona mitzumachen.
 category: Draußen
 draft: false
 pubDate: 2026-10-09T20:00:00+02:00
@@ -25,7 +25,7 @@ Seine Geschichten über das Dranbleiben, über Rückschläge und das Nicht-Aufge
 
 ## Gesagt, getan
 
-Und offenbar habe ich mir das gleich zu Herzen genommen: Mit Joey habe ich ausgemacht, nächstes Jahr bei seiner Alpenüberquerungs-Challenge mitzumachen. Von München nach Verona. 💪😅
+Und offenbar habe ich mir das gleich zu Herzen genommen: Mit Joey habe ich ausgemacht, bei seiner Alpenüberquerungs-Challenge mitzumachen. Von München nach Verona. Start ist am 8. August 2027. 💪😅
 
 Das Ziel steht. Jetzt heißt es: ab ans Trainieren.
 
