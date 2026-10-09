@@ -54,6 +54,8 @@ Was ich an ihm besonders schätze: Mit Peter kann man klar und direkt auf Augenh
 
 ### Benno Löffler
 
+Benno inspiriert mich. Und er ist „schuld“ daran, dass ich am Ende den Schritt in die Selbstständigkeit gewagt habe. Dafür bin ich ihm total dankbar.
+
 Mit Benno verbindet mich die Freude daran, Dinge gemeinsam weiterzudenken. Wir diskutieren viel, fordern uns gegenseitig heraus und hinterfragen auch die eigene Sicht. Aus der Zusammenarbeit ist längst eine echte Freundschaft geworden – und inzwischen sogar ein gemeinsames Buch, das Anfang 2027 erscheint.
 
 ## Was ich daraus mitnehme
