@@ -1,46 +1,51 @@
 ---
 title: Warum ich gern draußen bin
-description: Bergsteigen, Rennrad, Skitouren, Tennis – Bewegung tut mir einfach gut. Warum ich mir die Zeit draußen bewusst nehme und was sie mit meiner Arbeit zu tun hat.
+description: Bergsteigen, Rennrad, Skifahren, Tennis – ich bewege mich total gern. Draußen fahre ich runter und kann gut nachdenken. Warum mir die raue Natur so guttut.
 category: Draußen
-draft: true
+draft: false
+pubDate: 2026-10-09
 cover: draussen-gipfelkreuz
 ---
 
 **Bewegung tut mir einfach gut.**
 
-Klingt banal. Ist es aber für mich nicht.
+Klingt banal. Ist es für mich aber nicht.
 
-Mein Arbeitsalltag besteht aus vielen Gesprächen, aus Workshops, Analysen und Entscheidungen. Das macht mir Freude. Aber es spielt sich zu einem großen Teil im Kopf ab. Und genau deshalb brauche ich den Ausgleich draußen.
+Ich bin gern draußen und bewege mich total gern. Ob beim Bergsteigen, auf dem Klettersteig, auf dem Rennrad, beim Skifahren oder auf dem Tennisplatz: Das gehört zu meinem Leben einfach dazu.
 
-## Was mir die Zeit draußen gibt
+## Runterfahren
 
-Ob ich auf dem Rennrad sitze, mit den Tourenski einen Hang hinaufsteige, auf einem Klettersteig unterwegs bin oder auf dem Tennisplatz stehe: Für eine Weile zählt nur das, was gerade passiert.
+Mein Arbeitsalltag besteht aus vielen Gesprächen, aus Workshops, Analysen und Entscheidungen. Das macht mir Freude. Aber es spielt sich zu einem großen Teil im Kopf ab.
 
-- Der nächste Tritt.
-- Der nächste Griff.
+Draußen ist das anders. Da zählt erst einmal nur das, was gerade passiert.
+
+- Der nächste Schritt.
+- Der nächste Tritt in die Pedale.
 - Der nächste Ball.
 
 Kein Postfach. Keine Folien. Keine offene To-do-Liste.
 
-Und das Erstaunliche ist: Gerade wenn ich nicht über ein Thema nachdenke, sortiert es sich oft von selbst. Manche Idee ist mir nicht am Schreibtisch gekommen, sondern irgendwo zwischen zwei Kehren.
+Genau da fahre ich runter.
 
-## Berge rücken die Perspektive zurecht
+## Nachdenken
 
-Wer schon einmal auf einem Gipfel stand, kennt das Gefühl: Unten im Tal wirkt vieles riesig. Von oben sieht man plötzlich die Zusammenhänge.
+Und das Spannende ist: Gerade wenn ich nicht krampfhaft über etwas nachdenke, kann ich draußen besonders gut nachdenken. Gedanken sortieren sich. Was am Schreibtisch kompliziert wirkt, wird mit etwas Abstand oft klarer.
+
+Wer schon einmal auf einem Gipfel stand, kennt das: Unten im Tal wirkt vieles riesig. Von oben sieht man die Zusammenhänge.
 
 Das ist für mich auch ein Bild für meine Arbeit. In Unternehmen hilft es oft, einen Schritt zurückzutreten und das Ganze anzuschauen, statt sich an einer einzelnen Stelle festzubeißen.
 
-Die Berge erinnern mich außerdem daran, ehrlich mit den eigenen Grenzen umzugehen. Ein Ziel kann noch so verlockend sein: Wenn das Wetter umschlägt oder die Kraft nicht reicht, ist Umkehren keine Niederlage, sondern eine gute Entscheidung.
+## Die raue Natur
 
-## Gemeinsam unterwegs
+Ich mag die Natur, wenn sie ein bisschen rau ist. Felsen, Grate, Wind, Wasser. Nicht alles glatt und bequem.
 
-Draußen bin ich selten allein. Ob mit Freunden in den Bergen, mit der Mannschaft auf dem Platz oder im Verein: Beim Sport lernt man Menschen auf eine andere Art kennen. Ehrlicher vielleicht. Wenn alle müde sind und es trotzdem noch ein Stück weitergeht, zeigt sich schnell, wer mit anpackt und wer den anderen mitzieht.
+Deshalb zieht es mich auch so in den Norden. Auf der Trolltunga in Norwegen zu stehen, hoch über dem Fjord, war genau so ein Moment: wild, weit und ehrlich.
 
-Das verbindet. Und es ist ein Grund, warum mir mein Engagement in den örtlichen Vereinen so wichtig ist.
+Die raue Natur erinnert mich daran, dass man nicht alles kontrollieren kann. Man muss sich auf die Bedingungen einstellen, ehrlich mit den eigenen Kräften umgehen und manchmal auch umdrehen. Das ist keine Niederlage, sondern eine gute Entscheidung.
 
 ## Das nächste Ziel steht schon
 
-Bei einer Veranstaltung habe ich vor Kurzem Joey Kelly kennengelernt. Seine Geschichten über das Dranbleiben, über Rückschläge und das Nicht-Aufgeben haben mich beeindruckt. Offenbar so sehr, dass ich mit ihm ausgemacht habe, nächstes Jahr bei seiner Alpenüberquerungs-Challenge von München nach Verona mitzumachen. 😅
+Beim SAP-Usertreffen der neumeier AG habe ich vor Kurzem Joey Kelly erlebt. Seine Geschichten über das Dranbleiben, über Rückschläge und das Nicht-Aufgeben haben mich beeindruckt. Offenbar so sehr, dass ich mit ihm ausgemacht habe, nächstes Jahr bei seiner Alpenüberquerungs-Challenge von München nach Verona mitzumachen. 😅
 
 Das Ziel steht. Also: ab ans Trainieren.
 

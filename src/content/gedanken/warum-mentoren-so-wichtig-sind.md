@@ -2,8 +2,8 @@
 title: Warum Mentoren so wichtig im Leben sind
 description: Niemand kommt allein so weit. Josef Heitzer, Arnold Hauk, Peter Prinz und Benno Löffler haben mir etwas zugetraut, mich hinterfragt und mich laufen lassen. Was ich von ihnen mitgenommen habe.
 category: Führung und Zusammenarbeit
-draft: true
-cover: benno-eisbaden
+draft: false
+pubDate: 2026-10-09
 ---
 
 Man sagt ja gerne:
@@ -31,29 +31,35 @@ In den letzten 18 Jahren habe ich enorm davon profitiert, was mir vier Menschen 
 
 ### Josef Heitzer
 
-**[Flo, hier fehlt deine Geschichte: Wo und wann habt ihr zusammengearbeitet? Was hat Josef dir zugetraut, und welcher Moment ist dir besonders in Erinnerung?]**
+Mit Josef hat alles angefangen. Am Tag meines Vorstellungsgesprächs beim Maschinenbauer, bei dem ich dann fast 16 Jahre geblieben bin, hat er mich „aufgegabelt“. Das war gar nicht geplant, einfach ein besonderer Zufall.
+
+Josef hat mich bei allem unterstützt, was ich vorhatte und verändern wollte. Wenn ich einen Rat gebraucht habe, stand seine Tür immer offen. Inzwischen genießt er seinen wohlverdienten Ruhestand. Unsere Freundschaft ist geblieben.
 
 ### Arnold Hauk
 
-**[Flo, hier fehlt deine Geschichte: Wie hat Arnold dich gefördert? Gab es einen Satz oder eine Entscheidung, die dich geprägt hat?]**
+Arnold und ich haben uns von Anfang an sehr gut verstanden und vertraut. In seiner Zeit im Unternehmen konnte ich viel von ihm lernen, wovon ich heute noch profitiere. Aus diesem Vertrauensverhältnis heraus ist er für mich zu einem echten Mentor geworden.
+
+Und das ist bis heute so: Wenn ich ihn anrufe oder wir uns zum Austausch treffen, ist er sich für keinen persönlichen Rat zu schade.
 
 ### Peter Prinz
 
-**[Flo, hier fehlt deine Geschichte: Was hast du von Peter gelernt? Wo hat er dich laufen lassen und trotzdem aufgefangen?]**
+Peter wirft so schnell nichts aus der Bahn, egal was kommt. Von ihm habe ich vor allem methodisch und unternehmerisch extrem viel gelernt. Auf sein Verständnis und seine Unterstützung konnte ich mich immer verlassen.
+
+Was ich an ihm besonders schätze: Mit Peter kann man klar und direkt auf Augenhöhe diskutieren und auch mal eine andere Meinung haben. Für ihn ist das selbstverständlich. Und genau das hat mich geprägt.
 
 ### Benno Löffler
 
-Mit Benno verbindet mich die Freude daran, Dinge gemeinsam weiterzudenken. Wir diskutieren viel, fordern uns gegenseitig heraus und kommen dabei auf Ideen, auf die keiner von uns allein gekommen wäre. Aus der Zusammenarbeit ist längst eine echte Freundschaft geworden – und inzwischen sogar ein gemeinsames Buch.
-
-**[Flo, ergänze gern noch: Was hat Benno dir zugetraut, bevor du es selbst getan hättest?]**
+Mit Benno verbindet mich die Freude daran, Dinge gemeinsam weiterzudenken. Wir diskutieren viel, fordern uns gegenseitig heraus und hinterfragen auch die eigene Sicht. Aus der Zusammenarbeit ist längst eine echte Freundschaft geworden – und inzwischen sogar ein gemeinsames Buch, das Anfang 2027 erscheint.
 
 ## Was ich daraus mitnehme
 
-Heute begleite ich selbst Menschen im Coaching und als Mentor. Und ich merke immer wieder, wie viel von dem, was ich erlebt habe, in meine eigene Arbeit einfließt.
+Wenn ich auf diese vier Menschen schaue, sehe ich ganz unterschiedliche Charaktere, Hintergründe und Rollen. Und trotzdem verbindet sie etwas Entscheidendes: Sie haben mir vertraut.
 
-Ich möchte anderen etwas zutrauen. Ich möchte ehrlich widersprechen, wenn ich etwas anders sehe. Und ich möchte Menschen laufen lassen, ohne sie allein zu lassen.
+Heute begleite ich selbst Menschen im Coaching und als Mentor. Und ich merke immer wieder, wie viel von dem, was ich erlebt habe, in meine eigene Arbeit einfließt. Eine offene Tür. Ein ehrlicher Rat. Ein Widerspruch auf Augenhöhe.
 
 Danke an alle Wegbereiter, die ihren Teil dazu beigetragen haben, dass ich heute da stehe, wo ich stehe. Und dass ich mit großer Freude an meiner Arbeit wiederum anderen helfen darf, besser zu werden.
+
+Schön, dass wir nach wie vor Kontakt haben, auch wenn wir uns nicht mehr so oft sehen.
 
 Die Frage, die ich mir dabei immer wieder stelle:
 

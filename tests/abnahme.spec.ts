@@ -63,7 +63,8 @@ test('Entwürfe sind für Besucher unsichtbar', async ({ page, request }) => {
   const drafts = readdirSync('src/content/gedanken')
     .filter((f) => !/^draft:\s*false\s*$/m.test(readFileSync(`src/content/gedanken/${f}`, 'utf8')))
     .map((f) => f.replace(/\.md$/, ''));
-  expect(drafts.length).toBeGreaterThan(0);
+  // Ohne Entwürfe gibt es hier nichts zu prüfen; scripts/check-dist.mjs prüft trotzdem jeden Build.
+  test.skip(drafts.length === 0, 'Derzeit keine Entwürfe vorhanden');
   for (const slug of drafts) {
     const res = await request.get(`/gedanken/${slug}/`);
     expect(res.status(), slug).toBe(404);
@@ -81,11 +82,12 @@ test('Entwürfe sind für Besucher unsichtbar', async ({ page, request }) => {
 
 test('Bilder: Alttexte, feste Maße, nur erstes Bild priorisiert, Bildcredit sichtbar', async ({ page }) => {
   await page.goto('/');
-  const imgs = page.locator('main img');
+  // Beitragsbilder im Bereich „Aktuelle Gedanken“ zählen nicht zu den Startbildern.
+  const imgs = page.locator('main img:not(#gedanken img)');
   const n = await imgs.count();
   expect(n).toBeGreaterThan(0);
-  // 9 große Bilder + 4 kleine Mentorenporträts + Beitragsbild (auf Flos Wunsch mehr als die ursprünglich geplanten 6–8)
-  expect(n).toBeLessThanOrEqual(14);
+  // 9 große Bilder + 4 kleine Mentorenporträts (auf Flos Wunsch mehr als die ursprünglich geplanten 6–8)
+  expect(n).toBeLessThanOrEqual(13);
   for (let i = 0; i < n; i++) {
     const img = imgs.nth(i);
     expect((await img.getAttribute('alt'))?.length).toBeGreaterThan(10);
@@ -124,7 +126,8 @@ test('erster Beitrag ist veröffentlicht, mit Bildcredit und Quellen', async ({ 
   await expect(page.getByRole('link', { name: /regio-aktuell24/ })).toHaveAttribute('href', /regio-aktuell24\.de/);
   await expect(page.locator('.badge-draft')).toHaveCount(0);
   await page.goto('/gedanken/');
-  await expect(page.locator('.post-card')).toHaveCount(1);
+  const published = readdirSync('src/content/gedanken').filter((f) => /^draft:\s*false\s*$/m.test(readFileSync(`src/content/gedanken/${f}`, 'utf8')));
+  await expect(page.locator('.post-card')).toHaveCount(published.length);
 });
 
 test('Buch: Hero verweist auf Buchabschnitt, Abschnitt verlinkt Buch-Website', async ({ page }) => {

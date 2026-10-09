@@ -1,12 +1,11 @@
 // Angaben zum gemeinsamen Buch mit Benno Löffler.
-// Erscheinungstermin laut Flos LinkedIn-Beiträgen (Okt. 2026): voraussichtlich Frühjahr 2027.
-// Die Buch-Website nannte zuletzt noch den 1.12.2026.
+// Erscheinungstermin von Flo bestätigt (09.10.2026): 1. Quartal 2027.
 export const book = {
   title: 'Höchstleistungs-Killer',
   subtitle: 'Wie wir unsere Unternehmen versehentlich zugrunde richten. Und wie wir Leistung zurückholen.',
   authors: 'Benno Löffler & Florian Glöbl',
-  release: 'voraussichtlich im Frühjahr 2027',
-  releaseShort: 'Frühjahr 2027',
+  release: 'im ersten Quartal 2027',
+  releaseShort: 'Anfang 2027',
   url: 'https://hoechstleistungskiller.v-und-s.de/',
   parts: ['Wie Höchstleistung verloren geht', 'Höchstleistung bewahren und kultivieren', 'Ein Workshop zum Selbstdenken'],
 };

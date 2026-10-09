@@ -122,12 +122,10 @@ Noch nicht geprüft, weil noch nicht möglich: Live-Betrieb unter der Domain, HT
 
 ## Offen – vor dem Start klären
 
-Geklärt am 09.10.2026: Anbieter ist Flo als Privatperson, E-Mail f.gloebl@gmx.de · Benno ist mit dem Eisbade-Foto einverstanden (Schriftzug „MANLY“ per `retouch` mit Teppichmuster überdeckt) · Nutzungsrecht für das Klinikfoto liegt vor, der Beitrag ist veröffentlicht · Werte in Flos eigenen Worten · Trolltunga- und Wasserfallfoto für Skandinavien freigegeben.
+Geklärt am 09.10.2026: Anbieter ist Flo als Privatperson, E-Mail f.gloebl@gmx.de · Benno ist mit dem Eisbade-Foto einverstanden (Schriftzug „MANLY“ per `retouch` mit Teppichmuster überdeckt) · Nutzungsrecht für das Klinikfoto liegt vor, der Beitrag ist veröffentlicht · Werte in Flos eigenen Worten · Trolltunga- und Wasserfallfoto für Skandinavien freigegeben · Buch erscheint im 1. Quartal 2027 · Einverständnis der Mentoren für ihre Porträts liegt vor · beide Artikel veröffentlicht, Mentoren-Geschichten aus Flos LinkedIn-Artikel „15 years @ Sturm“ (Dez. 2022) · werkskante.de verlinkt.
 
-- [ ] **Erscheinungstermin des Buchs:** Die Buch-Website nennt den 1.12.2026, Flos LinkedIn-Beiträge (Okt. 2026) „Frühjahr 2027“. Auf dieser Seite steht „voraussichtlich im Frühjahr 2027“ (`src/data/book.ts`). Buch-Website angleichen.
-- [ ] **Mentorenfotos:** Ausschnitte aus Flos LinkedIn-Beitrag „Wegbereiter“. Einverständnis von Josef Heitzer, Arnold Hauk und Peter Prinz einholen.
-- [ ] **Entwürfe fertigstellen:** „Warum Mentoren so wichtig im Leben sind“ braucht Flos Geschichten zu Josef, Arnold und Peter (Platzhalter im Text). „Warum ich gern draußen bin“ gegenlesen – einige Sätze sind von Claude in Flos Stil formuliert. Danach `draft: false` und `pubDate` setzen.
-- [ ] **werkskante.de** ist derzeit nicht erreichbar (GitHub Pages „Site not found“). Sobald die neue Plattform läuft, auf der Startseite verlinken.
+- [ ] **werkskante.de ohne www** zeigt noch „Site not found“ (GitHub Pages). Nur `www.werkskante.de` funktioniert; im Repo der Werkskante-Seite die Apex-Domain prüfen.
+
 - [ ] Texte gegenlesen: Skandinavien-Abschnitt, Angebot 04 „Von der Idee zum Prototyp“, Buchempfehlungen.
 - [ ] Impressum und Datenschutz kurz rechtlich gegenlesen lassen.
 - [ ] Optional: Fußball-Mannschaftsfoto (steht im Manifest auf `pending`). Vereinsrollen erst nach Bestätigung nennen.
