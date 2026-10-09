@@ -2056,3 +2056,52 @@ p {
 .book-feature .btn--primary:hover {
   background: #e8264f;
 }
+
+/* ---------- Einheitlicher Abstands-Rhythmus zwischen den Abschnitten ----------
+   Zwischen zwei Abschnitten steht immer genau --gap Abstand zwischen den Inhalten.
+   Helle Abschnitte teilen ihn oben/unten je zur Hälfte; farbige Flächen
+   (Gespräch, Buch, Kontakt) halten außen --gap/2 Abstand und innen --pad Polster. */
+:root {
+  --gap: clamp(5rem, 9vw, 8rem);
+  --pad: clamp(4rem, 7.5vw, 6.5rem);
+}
+.section,
+.section + .section {
+  padding-block: calc(var(--gap) / 2);
+}
+.statement + .section,
+.book-feature + .section {
+  padding-top: calc(var(--gap) / 2);
+}
+.hero {
+  /* Platz für das überstehende Buch samt Beschriftung */
+  padding-bottom: calc(var(--gap) / 2 + 3rem);
+}
+.statement,
+.book-feature,
+.contact {
+  margin-block: calc(var(--gap) / 2);
+  padding-block: var(--pad);
+}
+.statement {
+  /* Bergkamm unten braucht etwas zusätzlichen Platz */
+  padding-bottom: calc(var(--pad) + 2.5rem);
+}
+.contact {
+  margin-bottom: calc(var(--gap) / 2);
+}
+@media (max-width: 760px) {
+  .book-feature,
+  .contact {
+    margin-block: calc(var(--gap) / 2);
+  }
+}
+/* Letzter Absatz eines Abschnitts bringt keinen eigenen Abstand nach unten mit */
+.section .wrap > :last-child,
+.section .prose > :last-child,
+.section .columns > :last-child > :last-child,
+.section .split > div > :last-child,
+.contact .prose > :last-child,
+.book-feature .prose > :last-child {
+  margin-bottom: 0;
+}
