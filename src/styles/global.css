@@ -2105,3 +2105,9 @@ p {
 .book-feature .prose > :last-child {
   margin-bottom: 0;
 }
+
+/* Buchempfehlungen: Titel und Autorzeile zentriert unter dem Cover */
+.rec h3,
+.rec .by {
+  text-align: center;
+}
