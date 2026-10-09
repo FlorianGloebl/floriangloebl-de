@@ -45,7 +45,7 @@ Die raue Natur erinnert mich daran, dass man nicht alles kontrollieren kann. Man
 
 ## Das nächste Ziel steht schon
 
-Beim SAP-Usertreffen der neumeier AG habe ich vor Kurzem Joey Kelly erlebt. Seine Geschichten über das Dranbleiben, über Rückschläge und das Nicht-Aufgeben haben mich beeindruckt. Offenbar so sehr, dass ich mit ihm ausgemacht habe, nächstes Jahr bei seiner Alpenüberquerungs-Challenge von München nach Verona mitzumachen. 😅
+Beim SAP-Usertreffen der neumeier AG habe ich vor Kurzem Joey Kelly erlebt. Seine Geschichten über das Dranbleiben, über Rückschläge und das Nicht-Aufgeben haben mich beeindruckt. Offenbar so sehr, dass ich mit ihm ausgemacht habe, am 8. August 2027 bei seiner Alpenüberquerungs-Challenge von München nach Verona mitzumachen. 😅
 
 Das Ziel steht. Also: ab ans Trainieren.
 
