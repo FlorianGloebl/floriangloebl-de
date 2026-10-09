@@ -2,7 +2,8 @@
 // Erscheinungstermin von Flo bestätigt (09.10.2026): 1. Quartal 2027.
 export const book = {
   title: 'Höchstleistungs-Killer',
-  subtitle: 'Wie wir unsere Unternehmen versehentlich zugrunde richten. Und wie wir Leistung zurückholen.',
+  suffix: 'in Organisationen',
+  subtitle: 'Wie sich Unternehmen versehentlich zugrunde richten. Und wie man die Leistungsfähigkeit wieder zurückgewinnen kann.',
   authors: 'Benno Löffler & Florian Glöbl',
   release: 'im ersten Quartal 2027',
   releaseShort: 'Anfang 2027',

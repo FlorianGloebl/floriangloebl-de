@@ -1,6 +1,6 @@
 ---
 // Gezeichnetes Buchobjekt (reines HTML/CSS, kein Bild) im Stil der Buch-Website:
-// tiefschwarzer Einband, Titel in Fraunces, „Killer“ kursiv in Ocker.
+// Bordeaux-schwarzer Einband, Titel in Fraunces, „Killer“ kursiv im Markenrot (Stand Okt. 2026).
 import { book } from '../data/book';
 
 interface Props {
@@ -13,7 +13,7 @@ const [first, second] = book.title.split('-');
 <div class:list={['book', cls]} aria-hidden="true">
   <div class="book__cover">
     <p class="book__authors">Benno Löffler<br />Florian Glöbl</p>
-    <p class="book__title">{first}-<em>{second}</em></p>
+    <p class="book__title">{first}-<em>{second}</em><span>{book.suffix}</span></p>
     <p class="book__sub">{book.subtitle}</p>
   </div>
 </div>

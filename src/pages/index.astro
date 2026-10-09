@@ -350,7 +350,7 @@ const mentors = [
       </div>
       <div class="prose">
         <p class="kicker">Unser neues Buch</p>
-        <h2 id="buch-titel">Höchstleistungs-<em>Killer</em></h2>
+        <h2 id="buch-titel">Höchstleistungs-<em>Killer</em> <span>{book.suffix}</span></h2>
         <p class="subline">{book.subtitle}</p>
         <p>
           Benno und ich schreiben gerade gemeinsam ein Buch. Es geht darum, wie Unternehmen ihre Leistungsfähigkeit
@@ -359,9 +359,10 @@ const mentors = [
         <ul class="arrows">
           {book.parts.map((part) => <li>{part}</li>)}
         </ul>
-        <p class="book-meta">{book.authors} · Erscheint {book.release}</p>
+        <p class="book-meta">{book.authors} · <span class="tag">#saugutezusammenarbeit</span> · Erscheint {book.release}</p>
         <div class="actions">
           <a class="btn btn--primary" href={book.url} rel="noopener">Ins Buch reinlesen</a>
+          <a class="btn btn--ghost" href="mailto:tietz@v-und-s.de?subject=Vorbestellung%20H%C3%B6chstleistungskiller-Buch">Buch vorbestellen</a>
         </div>
       </div>
     </div>

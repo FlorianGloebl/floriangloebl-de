@@ -1948,3 +1948,111 @@ p {
   justify-content: center;
   width: 100%;
 }
+
+/* ---------- Buch: neuer Stil der Buch-Website (Bordeaux-Schwarz, Markenrot) ---------- */
+:root {
+  --hlk-ink: #180910;
+  --hlk-red: #b70c34;
+  --hlk-light: #ff8aa5;
+  --hlk-paper: #faf5f6;
+}
+.book {
+  --cover: var(--hlk-ink);
+  --ochre: var(--hlk-red);
+  filter: drop-shadow(0 1.4rem 1.6rem rgb(24 9 16 / 0.4)) drop-shadow(0 0.25rem 0.35rem rgb(24 9 16 / 0.3));
+}
+.book::before {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 2px, rgb(0 0 0 / 0.05) 2px 3px),
+    repeating-linear-gradient(180deg, #faf5f6 0 1px, #e6d6dc 1px 2px);
+}
+.book__cover {
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 0.55) 0, rgb(255 255 255 / 0.08) 3%, transparent 6%, rgb(0 0 0 / 0.2) 7.5%, transparent 10%),
+    radial-gradient(120% 75% at 80% 15%, rgb(183 12 52 / 0.38) 0, transparent 62%),
+    var(--hlk-ink);
+}
+.book__authors {
+  border-bottom-color: rgb(183 12 52 / 0.8);
+}
+.book__title em {
+  color: var(--hlk-red);
+  text-shadow: 0 0 1.2em rgb(183 12 52 / 0.35);
+}
+.book__title span {
+  display: block;
+  margin-top: 0.15em;
+  font-size: 0.72em;
+  font-weight: 600;
+}
+
+/* Buchabschnitt dunkel wie die Buch-Website */
+.book-feature {
+  background:
+    radial-gradient(80% 90% at 15% 30%, rgb(183 12 52 / 0.28) 0, transparent 60%),
+    linear-gradient(160deg, #24101a 0%, var(--hlk-ink) 60%);
+  color: #fff;
+}
+.book-feature .kicker,
+.book-feature .book-meta {
+  color: var(--hlk-light);
+}
+.book-feature .kicker::after {
+  border-top-color: var(--hlk-light);
+}
+.book-feature h2 {
+  color: #fff;
+}
+.book-feature h2 em {
+  color: var(--hlk-red);
+  font-style: italic;
+}
+.book-feature h2 span {
+  font-size: 0.6em;
+  white-space: nowrap;
+}
+.book-feature .subline {
+  color: rgb(255 255 255 / 0.8);
+  font-family: var(--sans);
+}
+.book-feature .arrows li::before {
+  color: var(--hlk-light);
+}
+.book-feature .tag {
+  color: var(--hlk-light);
+  text-transform: none;
+  font-variant-caps: normal;
+  letter-spacing: 0;
+  font-family: var(--sans);
+  font-size: 0.85em;
+}
+.book-feature .btn--primary {
+  background: var(--hlk-red);
+  border-color: var(--hlk-red);
+  color: #fff;
+}
+.book-feature .btn--primary:hover {
+  background: #d0123f;
+  box-shadow: 0 0.6rem 1.2rem -0.6rem rgb(183 12 52 / 0.7);
+}
+.book-feature .btn--ghost {
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.45);
+}
+.book-feature .btn--ghost:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+.book-feature a:focus-visible {
+  outline-color: var(--hlk-light);
+}
+/* Kontrast: auf dem dunklen Grund ein minimal helleres Rot (3,7:1 statt 2,9:1) */
+.book-feature h2 em {
+  color: #d6153f;
+}
+.book-feature .btn--primary {
+  background: #d6153f;
+  border-color: #d6153f;
+}
+.book-feature .btn--primary:hover {
+  background: #e8264f;
+}
